@@ -1,0 +1,19 @@
+{
+  "name": "KuGiS Frauen 1",
+  "short_name": "KuGiS F1",
+  "description": "Tabelle, Ergebnisse und Spielplan der KuGiS Frauen 1",
+  "lang": "de-DE",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#101b32",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
