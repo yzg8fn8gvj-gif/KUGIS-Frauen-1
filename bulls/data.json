@@ -5,7 +5,7 @@
     "season": "2026/2027",
     "leagueId": 45,
     "sourceUrl": "https://dvos.de/liga.php?a_liga=45&p=0",
-    "updatedAt": "2026-11-23T08:11:50.963Z",
+    "updatedAt": "2026-11-23T08:12:56.823Z",
     "updateFrequencyHours": 1,
     "calendarNote": "Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt."
   },
@@ -16,42 +16,9 @@
       "played": 8,
       "points": 16,
       "setsFor": 60,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
-      "losses": null
-    },
-    {
-      "rank": 1,
-      "team": "TSG Nattheim Darts I",
-      "played": 8,
-      "points": 16,
-      "setsFor": 60,
       "setsAgainst": 8,
       "wins": 0,
       "draws": 0,
-      "losses": null
-    },
-    {
-      "rank": 2,
-      "team": "SV RV Ohmenheim I",
-      "played": 8,
-      "points": 12,
-      "setsFor": 53,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
-      "losses": null
-    },
-    {
-      "rank": 2,
-      "team": "TSV Game Over II",
-      "played": 8,
-      "points": 12,
-      "setsFor": 53,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
       "losses": null
     },
     {
@@ -82,31 +49,9 @@
       "played": 8,
       "points": 12,
       "setsFor": 52,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
-      "losses": null
-    },
-    {
-      "rank": 4,
-      "team": "TB Gingen Bulls I",
-      "played": 8,
-      "points": 12,
-      "setsFor": 52,
       "setsAgainst": 5,
       "wins": 2,
       "draws": 1,
-      "losses": null
-    },
-    {
-      "rank": 5,
-      "team": "Kellerfreunde DJK Göppingen I",
-      "played": 8,
-      "points": 11,
-      "setsFor": 44,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
       "losses": null
     },
     {
@@ -126,31 +71,9 @@
       "played": 8,
       "points": 6,
       "setsFor": 35,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
-      "losses": null
-    },
-    {
-      "rank": 6,
-      "team": "DCU Oberensingen I",
-      "played": 8,
-      "points": 6,
-      "setsFor": 35,
       "setsAgainst": 3,
       "wins": 0,
       "draws": 5,
-      "losses": null
-    },
-    {
-      "rank": 7,
-      "team": "1. DC Göppingen II",
-      "played": 8,
-      "points": 4,
-      "setsFor": 25,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
       "losses": null
     },
     {
@@ -170,17 +93,6 @@
       "played": 8,
       "points": 3,
       "setsFor": 24,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
-      "losses": null
-    },
-    {
-      "rank": 8,
-      "team": "WSV Mehrstetten Fuenfnullois I",
-      "played": 8,
-      "points": 3,
-      "setsFor": 24,
       "setsAgainst": 1,
       "wins": 1,
       "draws": 6,
@@ -192,31 +104,9 @@
       "played": 8,
       "points": 2,
       "setsFor": 29,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
-      "losses": null
-    },
-    {
-      "rank": 9,
-      "team": "TV Steinheim I",
-      "played": 8,
-      "points": 2,
-      "setsFor": 29,
       "setsAgainst": 0,
       "wins": 2,
       "draws": 6,
-      "losses": null
-    },
-    {
-      "rank": 10,
-      "team": "DC Lonetal Bernstadt I",
-      "played": 8,
-      "points": 2,
-      "setsFor": 25,
-      "setsAgainst": null,
-      "wins": null,
-      "draws": null,
       "losses": null
     },
     {
