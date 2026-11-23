@@ -5,7 +5,7 @@
     "season": "2026/2027",
     "leagueId": 45,
     "sourceUrl": "https://dvos.de/liga.php?a_liga=45&p=0",
-    "updatedAt": "2026-11-23T10:02:28.718Z",
+    "updatedAt": "2026-11-23T10:03:18.431Z",
     "updateFrequencyHours": 1,
     "calendarNote": "Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt."
   },
@@ -268,6 +268,28 @@
       "date": "2026-12-02",
       "home": "WSV Mehrstetten Fuenfnullois I",
       "away": "DCU Oberensingen I",
+      "homeScore": null,
+      "awayScore": null,
+      "reportUrl": null
+    }
+  ],
+  "cupMatches": [
+    {
+      "id": "cup-1bd9cf0d79d3c931d8288253",
+      "round": "2",
+      "date": "2026-10-28",
+      "home": "TB Gingen Bulls I",
+      "away": "SV Nersingen-Leibi I",
+      "homeScore": 6,
+      "awayScore": 4,
+      "reportUrl": null
+    },
+    {
+      "id": "cup-c98e6e53f13831b3a257cee9",
+      "round": "3",
+      "date": "2026-11-25",
+      "home": "TB Gingen Bulls I",
+      "away": "TV Steinheim I",
       "homeScore": null,
       "awayScore": null,
       "reportUrl": null

@@ -27,7 +27,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:dvos-21040ad4a571e46fefb4ecd0@tbgingenbulls1
-DTSTAMP:20261123T100228Z
+DTSTAMP:20261123T100318Z
 SUMMARY:TB Gingen Bulls I – WSV Mehrstetten Fuenfnullois I
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
@@ -40,7 +40,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:dvos-339db04d7f36776cbce11770@tbgingenbulls1
-DTSTAMP:20261123T100228Z
+DTSTAMP:20261123T100318Z
 SUMMARY:TV Steinheim I – TB Gingen Bulls I
 DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
@@ -53,7 +53,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:dvos-2fba09741165f4083556e5ec@tbgingenbulls1
-DTSTAMP:20261123T100228Z
+DTSTAMP:20261123T100318Z
 SUMMARY:Kellerfreunde DJK Göppingen I – TB Gingen Bulls I
 DTSTART;VALUE=DATE:20261202
 DTEND;VALUE=DATE:20261203
@@ -61,6 +61,32 @@ DESCRIPTION:Ligaspiel\nAuswärtsspiel\nSpieltag 9\nUhrzeit: von der DV
  OS-Quelle nicht veröffentlicht\; Termin daher ganztägig\nQuelle: ht
  tps://dvos.de/liga.php?a_liga=45&p=0
 URL:https://dvos.de/liga.php?a_liga=45&p=0
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:cup-1bd9cf0d79d3c931d8288253@tbgingenbulls1
+DTSTAMP:20261123T100318Z
+SUMMARY:🏆 POKAL: TB Gingen Bulls I – SV Nersingen-Leibi I
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+DESCRIPTION:DVOS-Pokal\nHeimspiel\nPokalrunde 2\nErgebnis: 6:4\nUhrzei
+ t: von der DVOS-Quelle nicht veröffentlicht\; Termin daher ganztägi
+ g\nQuelle: https://dvos.de/pokal.php
+URL:https://dvos.de/pokal.php
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:cup-c98e6e53f13831b3a257cee9@tbgingenbulls1
+DTSTAMP:20261123T100318Z
+SUMMARY:🏆 POKAL: TB Gingen Bulls I – TV Steinheim I
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+DESCRIPTION:DVOS-Pokal\nHeimspiel\nPokalrunde 3\nUhrzeit: von der DVOS
+ -Quelle nicht veröffentlicht\; Termin daher ganztägig\nQuelle: http
+ s://dvos.de/pokal.php
+URL:https://dvos.de/pokal.php
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
