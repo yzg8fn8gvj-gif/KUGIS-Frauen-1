@@ -1,0 +1,10 @@
+{
+  "api": "https://spo.handball4all.de/service/if_g_json.php",
+  "orgId": 216,
+  "leagueId": 162286,
+  "teamAliases": ["KuGiS", "Kuchen-Gingen-Süssen", "Kuchen-Gingen-Suessen", "SG KuGiS"],
+  "timezone": "Europe/Berlin",
+  "eventDurationMinutes": 120,
+  "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162286",
+  "note": "Für eine neue Saison nur orgId und leagueId, bei Namensänderung zusätzlich teamAliases anpassen. Die Kalender-Abo-Adresse bleibt unverändert."
+}
