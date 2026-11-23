@@ -144,9 +144,9 @@ function parseFixtures(allRows) {
     const scoreMatch = row.text.match(/\b(\d{1,2})\s*:\s*(\d{1,2})\b/);
     const hrefMatch = row.html.match(/href\s*=\s*["']([^"']*spielbericht\.php[^"']*)["']/i);
     const reportUrl = hrefMatch ? new URL(decode(hrefMatch[1]).replace(/&amp;/g, '&'), config.baseUrl).href : null;
-    const idMatch = reportUrl ? reportUrl.match(/[?&]id=(\d+)/) : null;
     const stableKey = currentRound + '|' + home + '|' + away;
-    const id = idMatch ? 'dvos-' + idMatch[1] : 'dvos-' + createHash('sha256').update(config.leagueId + '|' + stableKey).digest('hex').slice(0, 24);
+    // Stable across date changes and the later addition of a match-report ID.
+    const id = 'dvos-' + createHash('sha256').update(config.leagueId + '|' + stableKey).digest('hex').slice(0, 24);
     const game = {
       id,
       round: currentRound,
