@@ -264,76 +264,34 @@ const matches = [...fixtureMap.values()].sort((a, b) => a.date.localeCompare(b.d
 // Die Rückrunde wird nur dann aus der Hinrunde abgeleitet, wenn alle 9
 // Hinrunden-Spieltage vollständig (je 5 Begegnungen mit 10 Teams) vorliegen.
 function buildReturnFixtures(fixtures) {
+  const officialReturn = fixtures.filter(game => Number(game.round) >= 10 && Number(game.round) <= 18);
   const teams = new Set(standings.map(row => row.team));
-  if (teams.size !== 10) return [];
+  if (teams.size !== 10) return officialReturn;
   const firstLeg = fixtures.filter(game => Number(game.round) >= 1 && Number(game.round) <= 9);
-  for (let round = 1; round <= 9; round++) {
+  const firstLegComplete = Array.from({ length: 9 }, (_, index) => index + 1).every(round => {
     const games = firstLeg.filter(game => Number(game.round) === round);
     const involved = games.flatMap(game => [game.home, game.away]);
-    if (games.length !== 5 || involved.length !== 10 || new Set(involved).size !== 10) return [];
-  }
-  return firstLeg.map(game => {
+    return games.length === 5 && involved.length === 10 && new Set(involved).size === 10;
+  });
+  if (!firstLegComplete) return officialReturn;
+
+  // Abgeleitete Paarungen dienen nur als Reserve. Offizielle DVOS-Spiele
+  // ersetzen sie anhand derselben stabilen ID und bringen Datum/Ergebnis mit.
+  const combined = new Map();
+  for (const game of firstLeg) {
     const round = Number(game.round) + 9;
     const home = game.away;
     const away = game.home;
     const stableKey = round + '|' + home + '|' + away;
     const id = 'dvos-' + createHash('sha256').update(config.leagueId + '|' + stableKey).digest('hex').slice(0, 24);
-    return {
+    combined.set(id, {
       id, round, date: null, home, away,
       homeScore: null, awayScore: null, reportUrl: null,
       inferred: true
-    };
-  }).sort((a, b) => a.round - b.round || a.home.localeCompare(b.home, 'de'));
-}
-
-// Die Mannschafts-Auswahl wird aus dem offiziellen DVOS-Formular gelesen.
-async function findTeamAnalysisUrl() {
-  const fallback = 'https://dvos.de/ligaauswertung.php';
-  try {
-    const response = await fetch(fallback, {
-      headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
-      signal: AbortSignal.timeout(30000)
     });
-    if (!response.ok) return fallback;
-    const page = await response.text();
-    for (const formMatch of page.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)) {
-      const formAttrs = formMatch[1];
-      const formHtml = formMatch[2];
-      const actionMatch = formAttrs.match(/action\s*=\s*["']([^"']*)["']/i);
-      const action = new URL(actionMatch?.[1] || fallback, fallback);
-      const params = new URLSearchParams();
-      for (const input of formHtml.matchAll(/<input\b([^>]*)>/gi)) {
-        const attrs = input[1];
-        const name = attrs.match(/name\s*=\s*["']([^"']+)["']/i)?.[1];
-        const value = attrs.match(/value\s*=\s*["']([^"']*)["']/i)?.[1];
-        const type = attrs.match(/type\s*=\s*["']([^"']+)["']/i)?.[1] || 'text';
-        if (name && value !== undefined && type.toLowerCase() === 'hidden') params.set(name, decode(value));
-      }
-      for (const select of formHtml.matchAll(/<select\b([^>]*)>([\s\S]*?)<\/select>/gi)) {
-        const selectName = select[1].match(/name\s*=\s*["']([^"']+)["']/i)?.[1];
-        if (!selectName) continue;
-        for (const option of select[2].matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/gi)) {
-          const optionText = clean(option[2]);
-          if (optionText.toLowerCase() !== config.teamName.toLowerCase()) continue;
-          const optionValue = option[1].match(/value\s*=\s*["']([^"']*)["']/i)?.[1];
-          if (!optionValue) continue;
-          params.set(selectName, decode(optionValue));
-          if (selectName.toLowerCase() === 'ref2') params.set('ref1', 'id_m');
-          else if (!params.has('ref1')) {
-            params.set('ref1', 'id_m');
-            params.set('ref2', decode(optionValue));
-          }
-          if (params.get('ref1') === 'id_m' && params.has('ref2')) {
-            action.search = params.toString();
-            return action.href;
-          }
-        }
-      }
-    }
-  } catch (error) {
-    console.warn('DVOS-Mannschaftsauswertung konnte nicht bestimmt werden:', error.message);
   }
-  return fallback;
+  for (const game of officialReturn) combined.set(game.id, game);
+  return [...combined.values()].sort((a, b) => a.round - b.round || (a.date || '').localeCompare(b.date || ''));
 }
 const returnMatches = buildReturnFixtures(matches);
 const teamAnalysisUrl = await findTeamAnalysisUrl();
@@ -373,7 +331,8 @@ const data = {
     updatedAt: now.toISOString(),
     updateFrequencyHours: 1,
     scrapedLeaguePages: pageDiagnostics,
-    returnRoundAvailable: returnMatches.length > 0,
+    returnRoundAvailable: returnMatches.length >= 45,
+    returnRoundType: returnMatches.length >= 45 && returnMatches.every(game => !game.inferred) ? 'official' : (returnMatches.length ? 'inferred' : 'unavailable'),
     teamAnalysisUrl,
     calendarNote: 'Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt.'
   },
