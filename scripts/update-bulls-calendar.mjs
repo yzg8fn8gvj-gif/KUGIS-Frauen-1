@@ -301,6 +301,51 @@ function buildReturnFixtures(fixtures) {
   return [...combined.values()].sort((a, b) => Number(a.round) - Number(b.round) || (a.date || '').localeCompare(b.date || ''));
 }
 const returnMatches = buildReturnFixtures(matches);
+
+async function findTeamAnalysisUrl() {
+  const fallback = 'https://dvos.de/ligaauswertung.php?seite=0';
+  try {
+    const response = await fetch(fallback, {
+      headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
+      signal: AbortSignal.timeout(30000)
+    });
+    if (!response.ok) return fallback;
+    const page = await response.text();
+    for (const formMatch of page.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)) {
+      const formAttrs = formMatch[1];
+      const formHtml = formMatch[2];
+      const actionMatch = formAttrs.match(/action\s*=\s*["']([^"']*)["']/i);
+      const action = new URL(actionMatch?.[1] || fallback, fallback);
+      const params = new URLSearchParams();
+      for (const input of formHtml.matchAll(/<input\b([^>]*)>/gi)) {
+        const attrs = input[1];
+        const name = attrs.match(/name\s*=\s*["']([^"']+)["']/i)?.[1];
+        const value = attrs.match(/value\s*=\s*["']([^"']*)["']/i)?.[1];
+        const type = attrs.match(/type\s*=\s*["']([^"']+)["']/i)?.[1] || 'text';
+        if (name && value !== undefined && type.toLowerCase() === 'hidden') params.set(name, decode(value));
+      }
+      for (const select of formHtml.matchAll(/<select\b([^>]*)>([\s\S]*?)<\/select>/gi)) {
+        const selectName = select[1].match(/name\s*=\s*["']([^"']+)["']/i)?.[1];
+        if (!selectName) continue;
+        for (const option of select[2].matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/gi)) {
+          if (clean(option[2]).toLowerCase() !== config.teamName.toLowerCase()) continue;
+          const optionValue = option[1].match(/value\s*=\s*["']([^"']*)["']/i)?.[1];
+          if (!optionValue) continue;
+          params.set(selectName, decode(optionValue));
+          params.set('ref1', 'id_m');
+          params.set('ref2', decode(optionValue));
+          action.search = params.toString();
+          console.log('DVOS-Mannschaftsauswertung gefunden: ' + action.href);
+          return action.href;
+        }
+      }
+    }
+  } catch (error) {
+    console.warn('DVOS-Mannschaftsauswertung konnte nicht bestimmt werden:', error.message);
+  }
+  return fallback;
+}
+const teamAnalysisUrl = await findTeamAnalysisUrl();
 const teamAnalysisUrl = await findTeamAnalysisUrl();
 const cupResponse = await fetch('https://dvos.de/print_pokal.php', {
   headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
