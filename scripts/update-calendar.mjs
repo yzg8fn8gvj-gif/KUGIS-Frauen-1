@@ -55,7 +55,7 @@ function parse(o) {
 }
 const byId=new Map();
 for(const o of objects(payload)){const m=parse(o);if(m&&!byId.has(m.id))byId.set(m.id,m);}
-const games=[...byId.values()].sort((a,b)=>[a.date.y,a.date.m,a.date.d,a.date.h??0,a.date.min??0].join('-').localeCompare([b.date.y,b.date.m,b.date.d,b.date.h??0,b.date.min??0].join('-')));
+const games=[...byId.values()].sort((a,b)=>Date.UTC(a.date.y,a.date.m-1,a.date.d,a.date.h??0,a.date.min??0)-Date.UTC(b.date.y,b.date.m-1,b.date.d,b.date.h??0,b.date.min??0));
 if(!games.length)throw new Error('Keine KuGiS-Spiele erkannt; vorhandener Feed bleibt unverändert.');
 
 const pad=n=>String(n).padStart(2,'0');
