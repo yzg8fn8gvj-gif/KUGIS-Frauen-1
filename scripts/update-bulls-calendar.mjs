@@ -55,6 +55,22 @@ function rowsFrom(fragment) {
   }
   return rows;
 }
+function fixtureRowsFrom(fragment) {
+  // Matchdays use DVOS if-row1/if-row2 wrappers and ifs-feld1/ifs-feld2 cells.
+  const starts = [...fragment.matchAll(/<div\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bif-row[12]\b[^"']*["'])[^>]*>/gi)];
+  const rows = [];
+  for (let i = 0; i < starts.length; i++) {
+    const begin = starts[i].index + starts[i][0].length;
+    const end = i + 1 < starts.length ? starts[i + 1].index : fragment.length;
+    const rowHtml = fragment.slice(begin, end);
+    const cells = [];
+    for (const cell of rowHtml.matchAll(/<div\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bifs-feld[12]\b[^"']*["'])[^>]*>([\s\S]*?)<\/div>/gi)) {
+      cells.push(clean(cell[1]));
+    }
+    rows.push({ html: rowHtml, cells, text: clean(rowHtml) });
+  }
+  return rows;
+}
 function parseDate(text) {
   const s = String(text ?? '');
   let m = s.match(/\b(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})\b/);
@@ -146,18 +162,11 @@ function parseFixtures(allRows) {
   return [...fixtures.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 const tableGroups = [...html.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)].map(match => rowsFrom(match[1]));
-const allRows = rowsFrom(html);
-const tables = tableGroups.length ? tableGroups : [allRows];
+const layoutRows = rowsFrom(html);
+const fixtureRows = fixtureRowsFrom(html);
+const tables = tableGroups.length ? tableGroups : [layoutRows];
 const standings = parseStandings(tables);
-const matches = parseFixtures(allRows);
-const teamPositions = [...html.matchAll(/TB Gingen Bulls I/gi)].map(match => match.index);
-const fixturePosition = teamPositions.length > 1 ? teamPositions[teamPositions.length - 1] : (teamPositions[0] ?? -1);
-console.log('DVOS fixture diagnostics:', JSON.stringify({
-  rowCount: allRows.length,
-  teamOccurrences: teamPositions.length,
-  matchingRows: allRows.filter(row => /TB Gingen Bulls I|Spieltag|\\d{1,2}\\.\\d{1,2}\\.2026/.test(row.text)).map(row => ({cells: row.cells, text: row.text.slice(0, 260)})).slice(-35),
-  fixtureHtml: fixturePosition >= 0 ? html.slice(Math.max(0, fixturePosition - 1800), fixturePosition + 2600) : ''
-}));
+const matches = parseFixtures(fixtureRows);
 if (!standings.length && !matches.length) {
   console.log('DVOS parser diagnostics:', JSON.stringify({
     htmlLength: html.length,
