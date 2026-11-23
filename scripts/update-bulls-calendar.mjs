@@ -2,13 +2,18 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 
 const config = JSON.parse(await readFile(new URL('../bulls/config.json', import.meta.url), 'utf8'));
-const sourceUrl = new URL(config.sourceUrl);
+const sourceUrl = new URL(config.sourceUrl || 'https://dvos.de/liga.php');
+sourceUrl.searchParams.set('a_liga', String(config.leagueId));
 const response = await fetch(sourceUrl, {
   headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
   signal: AbortSignal.timeout(30000)
 });
 if (!response.ok) throw new Error('DVOS HTTP ' + response.status);
 const html = await response.text();
+const pageLinks = [...html.matchAll(/<a\\b[^>]*href\\s*=\\s*["']([^"']+)["'][^>]*>([\\s\\S]*?)<\\/a>/gi)]
+  .map(match => ({ href: decode(match[1]), text: clean(match[2]) }))
+  .filter(link => /spieltag|anzeigen|alle/i.test(link.text));
+console.log('DVOS matchday navigation:', JSON.stringify(pageLinks));
 if (!html || !/TB\s+Gingen\s+Bulls\s+I/i.test(html)) throw new Error('DVOS-Seite enthält nicht die erwartete Mannschaft.');
 
 function decode(value) {
@@ -190,7 +195,7 @@ const data = {
     leagueName: config.leagueName,
     season: config.season,
     leagueId: config.leagueId,
-    sourceUrl: config.sourceUrl,
+    sourceUrl: sourceUrl.href,
     updatedAt: now.toISOString(),
     updateFrequencyHours: 1,
     calendarNote: 'Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt.'
@@ -257,9 +262,9 @@ for (const game of teamMatches) {
     game.round ? 'Spieltag ' + game.round : '',
     score,
     'Uhrzeit: von der DVOS-Quelle nicht veröffentlicht; Termin daher ganztägig',
-    'Quelle: ' + config.sourceUrl
+    'Quelle: ' + sourceUrl.href
   ].filter(Boolean).join('\n');
-  const eventUrl = game.reportUrl || config.sourceUrl;
+  const eventUrl = game.reportUrl || sourceUrl.href;
   lines.push(
     'BEGIN:VEVENT',
     'UID:' + esc(game.id + '@tbgingenbulls1'),
