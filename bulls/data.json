@@ -5,7 +5,7 @@
     "season": "2026/2027",
     "leagueId": 45,
     "sourceUrl": "https://dvos.de/liga.php?a_liga=45&p=0",
-    "updatedAt": "2026-11-23T08:12:56.823Z",
+    "updatedAt": "2026-11-23T08:13:41.289Z",
     "updateFrequencyHours": 1,
     "calendarNote": "Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt."
   },
@@ -16,10 +16,10 @@
       "played": 8,
       "points": 16,
       "setsFor": 60,
-      "setsAgainst": 8,
-      "wins": 0,
+      "setsAgainst": 20,
+      "wins": 8,
       "draws": 0,
-      "losses": null
+      "losses": 0
     },
     {
       "rank": 2,
@@ -27,10 +27,10 @@
       "played": 8,
       "points": 12,
       "setsFor": 53,
-      "setsAgainst": 5,
-      "wins": 2,
-      "draws": 1,
-      "losses": null
+      "setsAgainst": 27,
+      "wins": 5,
+      "draws": 2,
+      "losses": 1
     },
     {
       "rank": 2,
@@ -38,10 +38,10 @@
       "played": 8,
       "points": 12,
       "setsFor": 53,
-      "setsAgainst": 6,
-      "wins": 0,
-      "draws": 2,
-      "losses": null
+      "setsAgainst": 27,
+      "wins": 6,
+      "draws": 0,
+      "losses": 2
     },
     {
       "rank": 4,
@@ -49,10 +49,10 @@
       "played": 8,
       "points": 12,
       "setsFor": 52,
-      "setsAgainst": 5,
-      "wins": 2,
-      "draws": 1,
-      "losses": null
+      "setsAgainst": 28,
+      "wins": 5,
+      "draws": 2,
+      "losses": 1
     },
     {
       "rank": 5,
@@ -60,10 +60,10 @@
       "played": 8,
       "points": 11,
       "setsFor": 44,
-      "setsAgainst": 5,
-      "wins": 1,
-      "draws": 2,
-      "losses": null
+      "setsAgainst": 36,
+      "wins": 5,
+      "draws": 1,
+      "losses": 2
     },
     {
       "rank": 6,
@@ -71,10 +71,10 @@
       "played": 8,
       "points": 6,
       "setsFor": 35,
-      "setsAgainst": 3,
-      "wins": 0,
-      "draws": 5,
-      "losses": null
+      "setsAgainst": 45,
+      "wins": 3,
+      "draws": 0,
+      "losses": 5
     },
     {
       "rank": 7,
@@ -82,10 +82,10 @@
       "played": 8,
       "points": 4,
       "setsFor": 25,
-      "setsAgainst": 2,
-      "wins": 0,
-      "draws": 6,
-      "losses": null
+      "setsAgainst": 55,
+      "wins": 2,
+      "draws": 0,
+      "losses": 6
     },
     {
       "rank": 8,
@@ -93,10 +93,10 @@
       "played": 8,
       "points": 3,
       "setsFor": 24,
-      "setsAgainst": 1,
+      "setsAgainst": 56,
       "wins": 1,
-      "draws": 6,
-      "losses": null
+      "draws": 1,
+      "losses": 6
     },
     {
       "rank": 9,
@@ -104,10 +104,10 @@
       "played": 8,
       "points": 2,
       "setsFor": 29,
-      "setsAgainst": 0,
-      "wins": 2,
-      "draws": 6,
-      "losses": null
+      "setsAgainst": 51,
+      "wins": 0,
+      "draws": 2,
+      "losses": 6
     },
     {
       "rank": 10,
@@ -115,10 +115,10 @@
       "played": 8,
       "points": 2,
       "setsFor": 25,
-      "setsAgainst": 0,
-      "wins": 2,
-      "draws": 6,
-      "losses": null
+      "setsAgainst": 55,
+      "wins": 0,
+      "draws": 2,
+      "losses": 6
     }
   ],
   "matches": [
