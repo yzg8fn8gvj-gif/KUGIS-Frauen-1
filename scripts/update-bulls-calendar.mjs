@@ -10,10 +10,6 @@ const response = await fetch(sourceUrl, {
 });
 if (!response.ok) throw new Error('DVOS HTTP ' + response.status);
 const html = await response.text();
-const pageLinks = [...html.matchAll(/<a\\b[^>]*href\\s*=\\s*["']([^"']+)["'][^>]*>([\\s\\S]*?)<\\/a>/gi)]
-  .map(match => ({ href: decode(match[1]), text: clean(match[2]) }))
-  .filter(link => /spieltag|anzeigen|alle/i.test(link.text));
-console.log('DVOS matchday navigation:', JSON.stringify(pageLinks));
 if (!html || !/TB\s+Gingen\s+Bulls\s+I/i.test(html)) throw new Error('DVOS-Seite enthält nicht die erwartete Mannschaft.');
 
 function decode(value) {
