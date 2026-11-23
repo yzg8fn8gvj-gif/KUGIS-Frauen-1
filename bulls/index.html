@@ -134,25 +134,26 @@ main{color:var(--ink)}.eyebrow{color:#ff627c}.sectionhead h2{color:#fff}
 const TEAM='TB Gingen Bulls I';
 const $=id=>document.getElementById(id);
 let data=null;
-let filters={results:'team',schedule:'team'};
+let filters={results:'all',schedule:'team',round:'all'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function isOur(m){return m.home===TEAM||m.away===TEAM;}
 function hasScore(m){return Number.isFinite(m.homeScore)&&Number.isFinite(m.awayScore);}
 function dateObj(s){if(!s)return null;const d=new Date(String(s).slice(0,10)+'T12:00:00');return Number.isNaN(d.getTime())?null:d;}
 function fmtDate(s){const d=dateObj(s);return d?new Intl.DateTimeFormat('de-DE',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric'}).format(d):'Termin offen';}
 function fmtUpdated(s){if(!s)return '—';const d=new Date(s);return Number.isNaN(d.getTime())?'—':d.toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});}
-function sorted(list){return [...list].sort((a,b)=>String(a.date).localeCompare(String(b.date)));}
+function sorted(list){return [...list].sort((a,b)=>(Number(a.round)||999)-(Number(b.round)||999)||String(a.date||'9999-99-99').localeCompare(String(b.date||'9999-99-99')));}
 function setStatus(state,text){$('statusDot').className='dot '+state;$('statusText').textContent=text;}
 function missing(title,body){return '<div class="empty"><strong>'+esc(title)+'</strong><p>'+esc(body)+'</p></div>';}
 function matchCard(m){
   const done=hasScore(m);
   const homeScore=done?m.homeScore:'–';
   const awayScore=done?m.awayScore:'–';
-  const state=done?'<span class="pill done">Beendet</span>':'<span class="pill upcoming">Anstehend</span>';
+  const state=m.inferred?'<span class="pill">Termin offen</span>':(done?'<span class="pill done">Beendet</span>':'<span class="pill upcoming">Anstehend</span>');
   const report=m.reportUrl?'<div class="actions"><a class="btn small red" target="_blank" rel="noopener" href="'+esc(m.reportUrl)+'">Spielbericht öffnen ↗</a></div>':'';
-  const round=m.round?' · Spieltag '+esc(m.round):'';
+  const round=m.round?' · '+(Number(m.round)>9?'Rückrunde':'Hinrunde')+' · Spieltag '+esc(m.round):'';
   const ours=isOur(m)?' <span class="pill">BULLS I</span>':'';
-  return '<div class="item"><div class="itemtop"><div class="itemteams">'+esc(m.home)+'<br><span class="muted">'+esc(m.away)+'</span></div><div style="text-align:right"><div class="itemresult">'+homeScore+' : '+awayScore+'</div>'+state+'</div></div><div class="itemmeta">'+esc(fmtDate(m.date))+round+ours+' · Uhrzeit nicht veröffentlicht</div>'+report+'</div>';
+  const meta=m.inferred?' · Paarung aus Hinrunde abgeleitet · Termin noch offen':(m.date?' · Uhrzeit nicht veröffentlicht':' · Termin offen');
+  return '<div class="item"><div class="itemtop"><div class="itemteams">'+esc(m.home)+'<br><span class="muted">'+esc(m.away)+'</span></div><div style="text-align:right"><div class="itemresult">'+homeScore+' : '+awayScore+'</div>'+state+'</div></div><div class="itemmeta">'+esc(fmtDate(m.date))+round+ours+meta+'</div>'+report+'</div>';
 }
 function renderTable(){
   const rows=(data.standings||[]).slice().sort((a,b)=>(a.rank??999)-(b.rank??999));
@@ -164,14 +165,28 @@ function renderTable(){
 function renderLists(){
   const all=sorted(data.matches||[]);
   const team=all.filter(isOur);
-  const allResults=all.filter(hasScore).reverse();
-  const teamResults=team.filter(hasScore).reverse();
-  const scheduleTeam=team;
-  $('resultsContent').innerHTML=(filters.results==='all'?allResults:teamResults).length?'<div class="card"><div class="list">'+(filters.results==='all'?allResults:teamResults).map(matchCard).join('')+'</div></div>':missing('Noch keine Ergebnisse','Für die gewählte Ansicht wurden keine abgeschlossenen Spiele gefunden.');
-  $('scheduleContent').innerHTML=(filters.schedule==='all'?all:scheduleTeam).length?'<div class="card"><div class="list">'+(filters.schedule==='all'?all:scheduleTeam).map(matchCard).join('')+'</div></div>':missing('Keine Spieltermine','Für die gewählte Ansicht wurden keine Spieltermine gefunden.');
+  const allResults=all.filter(hasScore).slice().reverse();
+  const teamResults=team.filter(hasScore).slice().reverse();
+  const selectedResults=filters.results==='all'?allResults:teamResults;
+  $('resultsContent').innerHTML=selectedResults.length?'<div class="card"><div class="list">'+selectedResults.map(matchCard).join('')+'</div></div>':missing('Noch keine Ergebnisse','Für die gewählte Ansicht wurden keine abgeschlossenen Spiele gefunden.');
+
+  const fullSchedule=sorted([...(data.matches||[]),...(data.returnMatches||[])]);
+  const scheduleBase=filters.schedule==='all'?fullSchedule:fullSchedule.filter(isOur);
+  const schedule= scheduleBase.filter(m=>{
+    if(filters.round==='hin') return Number(m.round)>=1 && Number(m.round)<=9;
+    if(filters.round==='rueck') return Number(m.round)>=10 && Number(m.round)<=18;
+    return true;
+  });
+  $('scheduleContent').innerHTML=schedule.length?'<div class="card"><div class="list">'+schedule.map(matchCard).join('')+'</div></div>':missing(filters.round==='rueck'?'Rückrunde noch nicht verfügbar':'Keine Spieltermine','DVOS hat für diese Auswahl noch keine bestätigten Begegnungen veröffentlicht.');
+  if($('returnRoundNote')){
+    $('returnRoundNote').textContent=data.meta?.returnRoundAvailable
+      ? 'Die Rückrundenpaarungen sind aus der vollständig erfassten Hinrunde abgeleitet. Offizielle Termine erscheinen, sobald DVOS sie veröffentlicht.'
+      : 'Die DVOS-Ansicht liefert aktuell noch keine vollständige Hinrunde. Deshalb werden keine Rückrunden-Gegner oder Termine erfunden. Neue DVOS-Spieltagseiten werden automatisch ergänzt.';
+  }
+
   const last=team.filter(hasScore).sort((a,b)=>String(b.date).localeCompare(String(a.date)))[0];
   const today=new Date().toISOString().slice(0,10);
-  const next=team.filter(m=>!hasScore(m)&&String(m.date)>=today).sort((a,b)=>String(a.date).localeCompare(String(b.date)))[0];
+  const next=team.filter(m=>!hasScore(m)&&m.date&&String(m.date)>=today).sort((a,b)=>String(a.date).localeCompare(String(b.date)))[0];
   $('lastMatch').innerHTML=last?'<div class="matchhero"><div class="club">'+esc(last.home)+'<small>Heim</small></div><div class="score">'+esc(last.homeScore)+':'+esc(last.awayScore)+'</div><div class="club">'+esc(last.away)+'<small>Gast</small></div></div><div class="matchmeta">'+esc(fmtDate(last.date))+'</div>'+(last.reportUrl?'<div class="actions" style="justify-content:center"><a class="btn small" target="_blank" rel="noopener" href="'+esc(last.reportUrl)+'">Spielbericht öffnen ↗</a></div>':''):missing('Noch kein Ergebnis gefunden','Sobald ein Bulls-Spiel auf der DVOS-Seite abgeschlossen ist, erscheint es hier.');
   $('nextMatch').innerHTML=next?'<div class="matchhero"><div class="club">'+esc(next.home)+'<small>Heim</small></div><div class="versus">VS</div><div class="club">'+esc(next.away)+'<small>Gast</small></div></div><div class="matchmeta">'+esc(fmtDate(next.date))+' · Uhrzeit nicht veröffentlicht</div>':missing('Kein kommendes Spiel gefunden','In den geladenen Daten ist derzeit kein zukünftiges Bulls-Spiel hinterlegt.');
 }
@@ -203,6 +218,12 @@ async function load(){
     $('leagueLabel').textContent=meta.leagueName||'DVOS-Liga';
     $('sourceDetails').textContent=(meta.leagueName||'DVOS-Liga')+' · Liga-ID '+(meta.leagueId??'—')+' · Saison '+(meta.season||'—');
     $('sourceLink').href=meta.sourceUrl||'https://dvos.de/liga.php?a_liga=45&p=0';
+    const teamStatsUrl=meta.teamAnalysisUrl||'https://dvos.de/ligaauswertung.php';
+    $('teamStatsOpen').href=teamStatsUrl;
+    $('teamStatsFrame').src=teamStatsUrl;
+    $('teamStatsHelp').textContent=teamStatsUrl.includes('ref1=id_m')
+      ? 'Die DVOS-Mannschaftsauswertung für TB Gingen Bulls I wurde direkt ausgewählt.'
+      : 'DVOS stellt die Mannschaftsauswertung über seine Auswahlseite bereit. Falls die Bulls I nicht vorausgewählt sind, bitte dort unter „nach Mannschaft“ TB Gingen Bulls I auswählen und „Auswertung starten“ drücken.';
     $('updatedText').textContent='Stand '+fmtUpdated(meta.updatedAt);
     $('dataUpdated').textContent='Letzte Datenaktualisierung: '+fmtUpdated(meta.updatedAt);
     renderTable();renderLists();renderCup();setStatus('good','DVOS-Daten geladen');
@@ -228,6 +249,11 @@ window.addEventListener('hashchange',route);
 document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{
   const view=btn.dataset.view;filters[view]=btn.dataset.filter;
   document.querySelectorAll('[data-view="'+view+'"]').forEach(b=>b.classList.toggle('selected',b===btn));
+  if(data)renderLists();
+}));
+document.querySelectorAll('[data-round]').forEach(btn=>btn.addEventListener('click',()=>{
+  filters.round=btn.dataset.round;
+  document.querySelectorAll('[data-round]').forEach(b=>b.classList.toggle('selected',b===btn));
   if(data)renderLists();
 }));
 $('refreshBtn').addEventListener('click',load);
