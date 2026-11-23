@@ -1,0 +1,58 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//TB Gingen Bulls//Mannschaft I Match Calendar//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:TB Gingen Bulls I
+X-WR-TIMEZONE:Europe/Berlin
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:dvos-497@tbgingenbulls1
+DTSTAMP:20261123T080000Z
+SUMMARY:TB Gingen Bulls I – WSV Mehrstetten Fuenfnullois I
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+DESCRIPTION:Heimspiel\nSpieltag 7\nErgebnis: 8:2\nUhrzeit von der DVOS-Quelle nicht veröffentlicht; Termin ganztägig
+URL:https://dvos.de/spielbericht.php?a_liga=45&art=1&id=497&spieltag=0
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:dvos-535@tbgingenbulls1
+DTSTAMP:20261123T080000Z
+SUMMARY:TV Steinheim I – TB Gingen Bulls I
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+DESCRIPTION:Auswärtsspiel\nSpieltag 8\nErgebnis: 5:5\nUhrzeit von der DVOS-Quelle nicht veröffentlicht; Termin ganztägig
+URL:https://dvos.de/spielbericht.php?a_liga=45&art=1&id=535&spieltag=0
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:bulls1-round9@tbgingenbulls1
+DTSTAMP:20261123T080000Z
+SUMMARY:Kellerfreunde DJK Göppingen I – TB Gingen Bulls I
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+DESCRIPTION:Auswärtsspiel\nSpieltag 9\nUhrzeit von der DVOS-Quelle nicht veröffentlicht; Termin ganztägig\nQuelle: https://dvos.de/liga.php?a_liga=45&p=0
+URL:https://dvos.de/liga.php?a_liga=45&p=0
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
