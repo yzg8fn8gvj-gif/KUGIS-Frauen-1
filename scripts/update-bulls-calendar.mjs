@@ -72,6 +72,42 @@ function fixtureRowsFrom(fragment) {
   }
   return rows;
 }
+function parseCupFixtures(fragment) {
+  const roundMarkers = [...fragment.matchAll(/Runde\\s*(\\d+)|Halbfinale|Platz\\s*3|Finale/gi)];
+  const dateMatches = [...fragment.matchAll(/(?:Mo|Di|Mi|Do|Fr|Sa|So)\\.?\\s*(\\d{1,2}\\.\\d{1,2}\\.\\d{4})/gi)];
+  const games = new Map();
+  for (let i = 0; i < dateMatches.length; i++) {
+    const match = dateMatches[i];
+    const end = i + 1 < dateMatches.length ? dateMatches[i + 1].index : fragment.length;
+    const chunk = fragment.slice(match.index, end);
+    const text = decode(chunk
+      .replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi, ' ')
+      .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;|&#160;/gi, ' ')
+      .replace(/\\s+/g, ' ')).trim();
+    const parts = text.split('|').map(part => part.trim()).filter(Boolean);
+    if (parts.length < 3) continue;
+    const date = parseDate(match[1]);
+    const home = parts[1];
+    const away = parts[parts.findIndex((part, index) => index >= 2 && /^-+$/.test(part)) + 1] || '';
+    if (!date || !home || !away || /^spielfrei$/i.test(away)) continue;
+    const scoreParts = parts.slice(parts.findIndex(part => part === away) + 1);
+    const scoreNumbers = scoreParts.map(num).filter(value => value !== null);
+    const marker = roundMarkers.filter(item => item.index < match.index).at(-1);
+    const roundText = marker ? marker[0] : '';
+    const round = roundText.match(/Runde\\s*(\\d+)/i)?.[1] || roundText;
+    const stableKey = [round, home, away].join('|');
+    const id = 'cup-' + createHash('sha256').update(config.season + '|' + stableKey).digest('hex').slice(0, 24);
+    games.set(stableKey, {
+      id, round, date, home, away,
+      homeScore: scoreNumbers.length >= 2 ? scoreNumbers[0] : null,
+      awayScore: scoreNumbers.length >= 2 ? scoreNumbers[1] : null,
+      reportUrl: null
+    });
+  }
+  return [...games.values()].sort((a, b) => a.date.localeCompare(b.date));
+}
 function parseDate(text) {
   const s = String(text ?? '');
   let m = s.match(/\b(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})\b/);
@@ -167,6 +203,14 @@ const fixtureRows = fixtureRowsFrom(html);
 const tables = tableGroups.length ? tableGroups : [layoutRows];
 const standings = parseStandings(tables);
 const matches = parseFixtures(fixtureRows);
+const cupResponse = await fetch('https://dvos.de/print_pokal.php', {
+  headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
+  signal: AbortSignal.timeout(30000)
+});
+if (!cupResponse.ok) throw new Error('DVOS-Pokal HTTP ' + cupResponse.status);
+const cupHtml = await cupResponse.text();
+const cupMatchesAll = parseCupFixtures(cupHtml);
+const cupMatches = cupMatchesAll.filter(game => game.home === config.teamName || game.away === config.teamName);
 if (!standings.length && !matches.length) {
   console.log('DVOS parser diagnostics:', JSON.stringify({
     htmlLength: html.length,
@@ -222,10 +266,10 @@ const nextDay = iso => {
 const lines = [
   'BEGIN:VCALENDAR',
   'VERSION:2.0',
-  'PRODID:-//TB Gingen Bulls//Mannschaft I Match Calendar//DE',
+  'PRODID:-//TB Gingen Bulls//Mannschaft I Liga und Pokal Calendar//DE',
   'CALSCALE:GREGORIAN',
   'METHOD:PUBLISH',
-  'X-WR-CALNAME:TB Gingen Bulls I',
+  'X-WR-CALNAME:TB Gingen Bulls I · Liga & Pokal',
   'X-WR-TIMEZONE:Europe/Berlin',
   'REFRESH-INTERVAL;VALUE=DURATION:PT1H',
   'X-PUBLISHED-TTL:PT1H',
@@ -248,7 +292,7 @@ const lines = [
   'END:STANDARD',
   'END:VTIMEZONE'
 ];
-for (const game of teamMatches) {
+for (const game of [...teamMatches.map(game => ({...game, competition:'Liga'})), ...cupMatches.map(game => ({...game, competition:'Pokal'}))]) {
   const homeGame = game.home === config.teamName;
   const opponent = homeGame ? game.away : game.home;
   const title = homeGame ? config.teamName + ' – ' + opponent : opponent + ' – ' + config.teamName;
@@ -260,12 +304,12 @@ for (const game of teamMatches) {
     'Uhrzeit: von der DVOS-Quelle nicht veröffentlicht; Termin daher ganztägig',
     'Quelle: ' + sourceUrl.href
   ].filter(Boolean).join('\n');
-  const eventUrl = game.reportUrl || sourceUrl.href;
+  const eventUrl = game.reportUrl || (isCup ? 'https://dvos.de/pokal.php' : sourceUrl.href);
   lines.push(
     'BEGIN:VEVENT',
     'UID:' + esc(game.id + '@tbgingenbulls1'),
     'DTSTAMP:' + dtstamp,
-    'SUMMARY:' + esc(title),
+    'SUMMARY:' + esc((isCup ? '🏆 POKAL: ' : '') + title),
     'DTSTART;VALUE=DATE:' + dateStamp(game.date),
     'DTEND;VALUE=DATE:' + dateStamp(nextDay(game.date)),
     'DESCRIPTION:' + esc(details),
@@ -277,4 +321,4 @@ for (const game of teamMatches) {
 }
 lines.push('END:VCALENDAR');
 await writeFile(new URL('../bulls/calendar.ics', import.meta.url), lines.map(fold).join('\r\n') + '\r\n', 'utf8');
-console.log('Bulls-I-Daten aktualisiert: ' + standings.length + ' Tabellenzeilen, ' + matches.length + ' Spiele, ' + teamMatches.length + ' Kalendertermine.');
+console.log('Bulls-I-Daten aktualisiert: ' + standings.length + ' Tabellenzeilen, ' + matches.length + ' Ligaspiele, ' + cupMatches.length + ' Pokalspiele, ' + (teamMatches.length + cupMatches.length) + ' Kalendertermine.');
