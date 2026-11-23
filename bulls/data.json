@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "teamName": "TB Gingen Bulls I",
+    "leagueName": "Bezirksoberliga A",
+    "season": "2026/2027",
+    "leagueId": 45,
+    "sourceUrl": "https://dvos.de/liga.php?a_liga=45&p=0",
+    "updatedAt": "2026-11-23T08:00:00+01:00",
+    "updateFrequencyHours": 1,
+    "calendarNote": "Die DVOS-Spielplanansicht veröffentlicht keine Spielbeginn-Uhrzeit. Termine werden deshalb als Ganztagstermine geführt."
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "team": "TSG Nattheim Darts I",
+      "played": 8,
+      "points": 16,
+      "setsFor": 60,
+      "setsAgainst": 20,
+      "wins": 8,
+      "draws": 0,
+      "losses": 0
+    },
+    {
+      "rank": 2,
+      "team": "SV RV Ohmenheim I",
+      "played": 8,
+      "points": 12,
+      "setsFor": 53,
+      "setsAgainst": 27,
+      "wins": 5,
+      "draws": 2,
+      "losses": 1
+    },
+    {
+      "rank": 2,
+      "team": "TSV Game Over II",
+      "played": 8,
+      "points": 12,
+      "setsFor": 53,
+      "setsAgainst": 27,
+      "wins": 6,
+      "draws": 0,
+      "losses": 2
+    },
+    {
+      "rank": 4,
+      "team": "TB Gingen Bulls I",
+      "played": 8,
+      "points": 12,
+      "setsFor": 52,
+      "setsAgainst": 28,
+      "wins": 5,
+      "draws": 2,
+      "losses": 1
+    },
+    {
+      "rank": 5,
+      "team": "Kellerfreunde DJK Göppingen I",
+      "played": 8,
+      "points": 11,
+      "setsFor": 44,
+      "setsAgainst": 36,
+      "wins": 5,
+      "draws": 1,
+      "losses": 2
+    },
+    {
+      "rank": 6,
+      "team": "DCU Oberensingen I",
+      "played": 8,
+      "points": 6,
+      "setsFor": 35,
+      "setsAgainst": 45,
+      "wins": 3,
+      "draws": 0,
+      "losses": 5
+    },
+    {
+      "rank": 7,
+      "team": "1. DC Göppingen II",
+      "played": 8,
+      "points": 4,
+      "setsFor": 25,
+      "setsAgainst": 55,
+      "wins": 2,
+      "draws": 0,
+      "losses": 6
+    },
+    {
+      "rank": 8,
+      "team": "WSV Mehrstetten Fuenfnullois I",
+      "played": 8,
+      "points": 3,
+      "setsFor": 24,
+      "setsAgainst": 56,
+      "wins": 1,
+      "draws": 1,
+      "losses": 6
+    },
+    {
+      "rank": 9,
+      "team": "TV Steinheim I",
+      "played": 8,
+      "points": 2,
+      "setsFor": 29,
+      "setsAgainst": 51,
+      "wins": 0,
+      "draws": 2,
+      "losses": 6
+    },
+    {
+      "rank": 10,
+      "team": "DC Lonetal Bernstadt I",
+      "played": 8,
+      "points": 2,
+      "setsFor": 25,
+      "setsAgainst": 55,
+      "wins": 0,
+      "draws": 2,
+      "losses": 6
+    }
+  ],
+  "matches": [
+    {
+      "id": "dvos-497",
+      "round": 7,
+      "date": "2026-11-11",
+      "home": "TB Gingen Bulls I",
+      "away": "WSV Mehrstetten Fuenfnullois I",
+      "homeScore": 8,
+      "awayScore": 2,
+      "reportUrl": "https://dvos.de/spielbericht.php?a_liga=45&art=1&id=497&spieltag=0"
+    },
+    {
+      "id": "dvos-535",
+      "round": 8,
+      "date": "2026-11-17",
+      "home": "TV Steinheim I",
+      "away": "TB Gingen Bulls I",
+      "homeScore": 5,
+      "awayScore": 5,
+      "reportUrl": "https://dvos.de/spielbericht.php?a_liga=45&art=1&id=535&spieltag=0"
+    },
+    {
+      "id": "bulls1-round9",
+      "round": 9,
+      "date": "2026-12-02",
+      "home": "Kellerfreunde DJK Göppingen I",
+      "away": "TB Gingen Bulls I",
+      "homeScore": null,
+      "awayScore": null,
+      "reportUrl": null
+    }
+  ]
+}
