@@ -264,7 +264,13 @@ const matches = [...fixtureMap.values()].sort((a, b) => a.date.localeCompare(b.d
 // Die Rückrunde wird nur dann aus der Hinrunde abgeleitet, wenn alle 9
 // Hinrunden-Spieltage vollständig (je 5 Begegnungen mit 10 Teams) vorliegen.
 function buildReturnFixtures(fixtures) {
-  const officialReturn = fixtures.filter(game => Number(game.round) >= 10 && Number(game.round) <= 18);
+  const officialReturn = fixtures
+    .filter(game => Number(game.round) >= 10 && Number(game.round) <= 18)
+    .sort((a, b) => Number(a.round) - Number(b.round) || (a.date || '').localeCompare(b.date || ''));
+  // Die vollständigen Rückrundenspiele stehen bereits auf der aktuellen DVOS-Seite.
+  // In diesem Fall ausschließlich diese Originaldaten verwenden.
+  if (officialReturn.length === 45) return officialReturn;
+
   const teams = new Set(standings.map(row => row.team));
   if (teams.size !== 10) return officialReturn;
   const firstLeg = fixtures.filter(game => Number(game.round) >= 1 && Number(game.round) <= 9);
@@ -275,23 +281,24 @@ function buildReturnFixtures(fixtures) {
   });
   if (!firstLegComplete) return officialReturn;
 
-  // Abgeleitete Paarungen dienen nur als Reserve. Offizielle DVOS-Spiele
-  // ersetzen sie anhand derselben stabilen ID und bringen Datum/Ergebnis mit.
   const combined = new Map();
   for (const game of firstLeg) {
     const round = Number(game.round) + 9;
     const home = game.away;
     const away = game.home;
-    const stableKey = round + '|' + home + '|' + away;
-    const id = 'dvos-' + createHash('sha256').update(config.leagueId + '|' + stableKey).digest('hex').slice(0, 24);
-    combined.set(id, {
+    const key = round + '|' + home + '|' + away;
+    const id = 'dvos-' + createHash('sha256').update(config.leagueId + '|' + key).digest('hex').slice(0, 24);
+    combined.set(key, {
       id, round, date: null, home, away,
       homeScore: null, awayScore: null, reportUrl: null,
       inferred: true
     });
   }
-  for (const game of officialReturn) combined.set(game.id, game);
-  return [...combined.values()].sort((a, b) => a.round - b.round || (a.date || '').localeCompare(b.date || ''));
+  for (const game of officialReturn) {
+    const key = [game.round, game.home, game.away].join('|');
+    combined.set(key, game);
+  }
+  return [...combined.values()].sort((a, b) => Number(a.round) - Number(b.round) || (a.date || '').localeCompare(b.date || ''));
 }
 const returnMatches = buildReturnFixtures(matches);
 const teamAnalysisUrl = await findTeamAnalysisUrl();
