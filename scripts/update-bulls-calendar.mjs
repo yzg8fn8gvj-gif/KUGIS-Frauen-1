@@ -100,7 +100,7 @@ function parseStandings(allTables) {
       if (played === null || points === null) continue;
 
       // DVOS visually splits a set score (e.g. 52 : 28) across divs.
-      const setMatch = row.text.match(/\\b(\\d+)\\s*:\\s*(\\d+)\\b/);
+      const setMatch = row.text.match(/\b(\d+)\s*:\s*(\d+)\b/);
       const numericAfter = after.slice(2).map(num).filter(v => v !== null);
       const setsFor = setMatch ? Number(setMatch[1]) : (numericAfter[0] ?? null);
       const setsAgainst = setMatch ? Number(setMatch[2]) : (numericAfter[1] ?? null);
