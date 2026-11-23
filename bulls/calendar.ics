@@ -1,9 +1,9 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//TB Gingen Bulls//Mannschaft I Match Calendar//DE
+PRODID:-//TB Gingen Bulls//Mannschaft I Liga und Pokal Calendar//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:TB Gingen Bulls I
+X-WR-CALNAME:TB Gingen Bulls I · Liga & Pokal
 X-WR-TIMEZONE:Europe/Berlin
 REFRESH-INTERVAL;VALUE=DURATION:PT1H
 X-PUBLISHED-TTL:PT1H
@@ -27,39 +27,39 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:dvos-21040ad4a571e46fefb4ecd0@tbgingenbulls1
-DTSTAMP:20261123T085221Z
+DTSTAMP:20261123T100228Z
 SUMMARY:TB Gingen Bulls I – WSV Mehrstetten Fuenfnullois I
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
-DESCRIPTION:Heimspiel\nSpieltag 7\nErgebnis: 8:2\nUhrzeit: von der DVO
- S-Quelle nicht veröffentlicht\; Termin daher ganztägig\nQuelle: htt
- ps://dvos.de/liga.php?a_liga=45&p=0
+DESCRIPTION:Ligaspiel\nHeimspiel\nSpieltag 7\nErgebnis: 8:2\nUhrzeit: 
+ von der DVOS-Quelle nicht veröffentlicht\; Termin daher ganztägig\n
+ Quelle: https://dvos.de/liga.php?a_liga=45&p=0
 URL:https://dvos.de/spielbericht.php?id=497&art=1&a_liga=45&spieltag=0
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:dvos-339db04d7f36776cbce11770@tbgingenbulls1
-DTSTAMP:20261123T085221Z
+DTSTAMP:20261123T100228Z
 SUMMARY:TV Steinheim I – TB Gingen Bulls I
 DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
-DESCRIPTION:Auswärtsspiel\nSpieltag 8\nErgebnis: 5:5\nUhrzeit: von de
- r DVOS-Quelle nicht veröffentlicht\; Termin daher ganztägig\nQuelle
- : https://dvos.de/liga.php?a_liga=45&p=0
+DESCRIPTION:Ligaspiel\nAuswärtsspiel\nSpieltag 8\nErgebnis: 5:5\nUhrz
+ eit: von der DVOS-Quelle nicht veröffentlicht\; Termin daher ganztä
+ gig\nQuelle: https://dvos.de/liga.php?a_liga=45&p=0
 URL:https://dvos.de/spielbericht.php?id=535&art=1&a_liga=45&spieltag=0
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:dvos-2fba09741165f4083556e5ec@tbgingenbulls1
-DTSTAMP:20261123T085221Z
+DTSTAMP:20261123T100228Z
 SUMMARY:Kellerfreunde DJK Göppingen I – TB Gingen Bulls I
 DTSTART;VALUE=DATE:20261202
 DTEND;VALUE=DATE:20261203
-DESCRIPTION:Auswärtsspiel\nSpieltag 9\nUhrzeit: von der DVOS-Quelle n
- icht veröffentlicht\; Termin daher ganztägig\nQuelle: https://dvos.
- de/liga.php?a_liga=45&p=0
+DESCRIPTION:Ligaspiel\nAuswärtsspiel\nSpieltag 9\nUhrzeit: von der DV
+ OS-Quelle nicht veröffentlicht\; Termin daher ganztägig\nQuelle: ht
+ tps://dvos.de/liga.php?a_liga=45&p=0
 URL:https://dvos.de/liga.php?a_liga=45&p=0
 STATUS:CONFIRMED
 TRANSP:OPAQUE
