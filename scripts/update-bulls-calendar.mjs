@@ -150,6 +150,14 @@ const allRows = rowsFrom(html);
 const tables = tableGroups.length ? tableGroups : [allRows];
 const standings = parseStandings(tables);
 const matches = parseFixtures(allRows);
+const teamPositions = [...html.matchAll(/TB Gingen Bulls I/gi)].map(match => match.index);
+const fixturePosition = teamPositions.length > 1 ? teamPositions[teamPositions.length - 1] : (teamPositions[0] ?? -1);
+console.log('DVOS fixture diagnostics:', JSON.stringify({
+  rowCount: allRows.length,
+  teamOccurrences: teamPositions.length,
+  matchingRows: allRows.filter(row => /TB Gingen Bulls I|Spieltag|\\d{1,2}\\.\\d{1,2}\\.2026/.test(row.text)).map(row => ({cells: row.cells, text: row.text.slice(0, 260)})).slice(-35),
+  fixtureHtml: fixturePosition >= 0 ? html.slice(Math.max(0, fixturePosition - 1800), fixturePosition + 2600) : ''
+}));
 if (!standings.length && !matches.length) {
   console.log('DVOS parser diagnostics:', JSON.stringify({
     htmlLength: html.length,
