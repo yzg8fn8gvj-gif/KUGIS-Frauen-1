@@ -346,7 +346,6 @@ async function findTeamAnalysisUrl() {
   return fallback;
 }
 const teamAnalysisUrl = await findTeamAnalysisUrl();
-const teamAnalysisUrl = await findTeamAnalysisUrl();
 const cupResponse = await fetch('https://dvos.de/print_pokal.php', {
   headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
   signal: AbortSignal.timeout(30000)
