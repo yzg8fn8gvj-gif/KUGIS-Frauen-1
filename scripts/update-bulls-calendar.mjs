@@ -88,44 +88,43 @@ function num(value) {
   return m ? Number(m[1]) : null;
 }
 function parseStandings(allTables) {
-  const candidates = [];
+  const bestByTeam = new Map();
   for (const table of allTables) {
-    const parsedRows = table.map(row => {
+    for (const row of table) {
       const idx = row.cells.findIndex(isTeamName);
-      if (idx < 1 || row.cells.length < idx + 4) return null;
+      if (idx < 1 || row.cells.length < idx + 4) continue;
       const before = row.cells.slice(0, idx).map(num).filter(v => v !== null);
       const after = row.cells.slice(idx + 1);
       const played = num(after[0]);
       const points = num(after[1]);
-      if (played === null || points === null) return null;
-      const tokens = [];
-      for (const cell of after.slice(2)) {
-        const pair = String(cell).match(/^\s*(\d+)\s*:\s*(\d+)\s*$/);
-        if (pair) tokens.push(Number(pair[1]), Number(pair[2]));
-        else {
-          const n = num(cell);
-          if (n !== null) tokens.push(n);
-        }
-      }
-      return {
+      if (played === null || points === null) continue;
+
+      // DVOS visually splits a set score (e.g. 52 : 28) across divs.
+      const setMatch = row.text.match(/\\b(\\d+)\\s*:\\s*(\\d+)\\b/);
+      const numericAfter = after.slice(2).map(num).filter(v => v !== null);
+      const setsFor = setMatch ? Number(setMatch[1]) : (numericAfter[0] ?? null);
+      const setsAgainst = setMatch ? Number(setMatch[2]) : (numericAfter[1] ?? null);
+      const statsStart = setMatch && numericAfter[0] === Number(setMatch[1]) ? 1 : 2;
+      const stats = numericAfter.slice(statsStart);
+      const item = {
         rank: before.length ? before[before.length - 1] : null,
         team: row.cells[idx],
         played,
         points,
-        setsFor: tokens.length > 0 ? tokens[0] : null,
-        setsAgainst: tokens.length > 1 ? tokens[1] : null,
-        wins: tokens.length > 2 ? tokens[2] : null,
-        draws: tokens.length > 3 ? tokens[3] : null,
-        losses: tokens.length > 4 ? tokens[4] : null
+        setsFor,
+        setsAgainst,
+        wins: stats.length > 0 ? stats[0] : null,
+        draws: stats.length > 1 ? stats[1] : null,
+        losses: stats.length > 2 ? stats[2] : null
       };
-    }).filter(Boolean);
-    if (parsedRows.length >= 5 && parsedRows.some(row => row.team === config.teamName)) {
-      const avgCells = table.length ? table.reduce((sum, row) => sum + row.cells.length, 0) / table.length : 0;
-      candidates.push({ rows: parsedRows, score: parsedRows.length * 100 + avgCells });
+      const quality = [item.setsFor, item.setsAgainst, item.wins, item.draws, item.losses].filter(v => v !== null).length;
+      const previous = bestByTeam.get(item.team);
+      if (!previous || quality > previous.quality) bestByTeam.set(item.team, { item, quality });
     }
   }
-  candidates.sort((a, b) => b.score - a.score);
-  return candidates.length ? candidates[0].rows.sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999)) : [];
+  const rows = [...bestByTeam.values()].map(value => value.item);
+  if (rows.length < 5 || !rows.some(row => row.team === config.teamName)) return [];
+  return rows.sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
 }
 function parseFixtures(allRows) {
   const fixtures = new Map();
