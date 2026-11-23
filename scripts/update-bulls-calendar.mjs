@@ -31,12 +31,27 @@ function clean(value) {
     .replace(/\s+/g, ' ').trim();
 }
 function rowsFrom(fragment) {
-  const rows = [];
+  const tableRows = [];
   for (const match of fragment.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)) {
     const rowHtml = match[1];
     const cells = [];
     for (const cell of rowHtml.matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)) cells.push(clean(cell[1]));
-    rows.push({ html: rowHtml, cells, text: clean(rowHtml) });
+    tableRows.push({ html: rowHtml, cells, text: clean(rowHtml) });
+  }
+  if (tableRows.length) return tableRows;
+
+  // DVOS renders this league with div.row / div.cell rather than HTML tables.
+  const starts = [...fragment.matchAll(/<div\b(?=[^>]*\bclass\s*=\s*["'][^"']*\brow\b[^"']*["'])[^>]*>/gi)];
+  const rows = [];
+  for (let i = 0; i < starts.length; i++) {
+    const begin = starts[i].index + starts[i][0].length;
+    const end = i + 1 < starts.length ? starts[i + 1].index : fragment.length;
+    const rowHtml = fragment.slice(begin, end);
+    const cells = [];
+    for (const cell of rowHtml.matchAll(/<div\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bcell\b[^"']*["'])[^>]*>([\s\S]*?)<\/div>/gi)) {
+      cells.push(clean(cell[1]));
+    }
+    if (cells.length) rows.push({ html: rowHtml, cells, text: clean(rowHtml) });
   }
   return rows;
 }
@@ -130,22 +145,18 @@ function parseFixtures(allRows) {
   }
   return [...fixtures.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
-const tables = [...html.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)].map(match => rowsFrom(match[1]));
+const tableGroups = [...html.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)].map(match => rowsFrom(match[1]));
 const allRows = rowsFrom(html);
+const tables = tableGroups.length ? tableGroups : [allRows];
 const standings = parseStandings(tables);
 const matches = parseFixtures(allRows);
 if (!standings.length && !matches.length) {
-  const nameAt = html.indexOf(config.teamName);
-  const tableAt = html.toLowerCase().indexOf('<table');
-  const rowAt = html.toLowerCase().indexOf('<tr');
-  console.log('DVOS diagnostics:', JSON.stringify({
+  console.log('DVOS parser diagnostics:', JSON.stringify({
     htmlLength: html.length,
-    tableCount: (html.match(/<table\\b/gi) || []).length,
-    rowCount: (html.match(/<tr\\b/gi) || []).length,
-    teamNameFound: nameAt >= 0,
-    teamContext: nameAt >= 0 ? html.slice(Math.max(0, nameAt - 500), nameAt + 1000) : '',
-    firstTableContext: tableAt >= 0 ? html.slice(tableAt, tableAt + 1800) : '',
-    firstRowContext: rowAt >= 0 ? html.slice(rowAt, rowAt + 900) : ''
+    divRows: allRows.length,
+    parsedStandings: standings.length,
+    parsedMatches: matches.length,
+    teamNameFound: html.includes(config.teamName)
   }));
   throw new Error('DVOS-Seite wurde geladen, aber Tabelle und Spielplan konnten nicht erkannt werden. Vorhandene Daten bleiben erhalten.');
 }
