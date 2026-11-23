@@ -87,13 +87,25 @@ function parseCupFixtures(fragment) {
       .replace(/&nbsp;|&#160;/gi, ' ')
       .replace(/\s+/g, ' ')).trim();
     const parts = text.split('|').map(part => part.trim()).filter(Boolean);
-    if (parts.length < 3) continue;
     const date = parseDate(match[1]);
-    const home = parts[1];
-    const away = parts[parts.findIndex((part, index) => index >= 2 && /^-+$/.test(part)) + 1] || '';
+    let home = '';
+    let away = '';
+    let scoreNumbers = [];
+    if (parts.length >= 3) {
+      home = parts[1];
+      away = parts[parts.findIndex((part, index) => index >= 2 && /^-+$/.test(part)) + 1] || '';
+      const scoreParts = parts.slice(parts.findIndex(part => part === away) + 1);
+      scoreNumbers = scoreParts.map(num).filter(value => value !== null);
+    } else {
+      const body = text.replace(match[0], '').replace(/DVOS-Pokal[\\s\\S]*$/i, '').trim();
+      const pair = body.match(/^(.*?)\\s+-\\s+(.*?)(?:\\s+(\\d{1,2})\\s*:\\s*(\\d{1,2}))?\\s*$/);
+      if (pair) {
+        home = pair[1].trim();
+        away = pair[2].trim();
+        if (pair[3] !== undefined) scoreNumbers = [Number(pair[3]), Number(pair[4])];
+      }
+    }
     if (!date || !home || !away || /^spielfrei$/i.test(away)) continue;
-    const scoreParts = parts.slice(parts.findIndex(part => part === away) + 1);
-    const scoreNumbers = scoreParts.map(num).filter(value => value !== null);
     const marker = roundMarkers.filter(item => item.index < match.index).at(-1);
     const roundText = marker ? marker[0] : '';
     const round = roundText.match(/Runde\s*(\d+)/i)?.[1] || roundText;
