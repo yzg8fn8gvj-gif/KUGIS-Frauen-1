@@ -170,7 +170,14 @@ function renderLists(){
   const selectedResults=filters.results==='all'?allResults:teamResults;
   $('resultsContent').innerHTML=selectedResults.length?'<div class="card"><div class="list">'+selectedResults.map(matchCard).join('')+'</div></div>':missing('Noch keine Ergebnisse','Für die gewählte Ansicht wurden keine abgeschlossenen Spiele gefunden.');
 
-  const fullSchedule=sorted([...(data.matches||[]),...(data.returnMatches||[])]);
+  const scheduleMap=new Map();
+  for(const m of (data.matches||[])) scheduleMap.set(m.id||[m.round,m.home,m.away].join('|'),m);
+  for(const m of (data.returnMatches||[])){
+    const key=m.id||[m.round,m.home,m.away].join('|');
+    const current=scheduleMap.get(key);
+    if(!current || (!current.date&&m.date)) scheduleMap.set(key,m);
+  }
+  const fullSchedule=sorted([...scheduleMap.values()]);
   const scheduleBase=filters.schedule==='all'?fullSchedule:fullSchedule.filter(isOur);
   const schedule= scheduleBase.filter(m=>{
     if(filters.round==='hin') return Number(m.round)>=1 && Number(m.round)<=9;
@@ -179,9 +186,11 @@ function renderLists(){
   });
   $('scheduleContent').innerHTML=schedule.length?'<div class="card"><div class="list">'+schedule.map(matchCard).join('')+'</div></div>':missing(filters.round==='rueck'?'Rückrunde noch nicht verfügbar':'Keine Spieltermine','DVOS hat für diese Auswahl noch keine bestätigten Begegnungen veröffentlicht.');
   if($('returnRoundNote')){
-    $('returnRoundNote').textContent=data.meta?.returnRoundAvailable
-      ? 'Die Rückrundenpaarungen sind aus der vollständig erfassten Hinrunde abgeleitet. Offizielle Termine erscheinen, sobald DVOS sie veröffentlicht.'
-      : 'Die DVOS-Ansicht liefert aktuell noch keine vollständige Hinrunde. Deshalb werden keine Rückrunden-Gegner oder Termine erfunden. Neue DVOS-Spieltagseiten werden automatisch ergänzt.';
+    $('returnRoundNote').textContent=data.meta?.returnRoundType==='official'
+      ? 'Hin- und Rückrunde mit allen 18 Spieltagen direkt aus DVOS übernommen.'
+      : (data.meta?.returnRoundType==='inferred'
+        ? 'Fehlende Rückrunden-Paarungen wurden aus der Hinrunde abgeleitet und sind als vorläufig gekennzeichnet.'
+        : 'DVOS hat noch nicht alle Rückrunden-Paarungen veröffentlicht. Neue Spieltage werden automatisch ergänzt.');
   }
 
   const last=team.filter(hasScore).sort((a,b)=>String(b.date).localeCompare(String(a.date)))[0];
