@@ -5,9 +5,9 @@
     "season": "2026/2027",
     "leagueId": 45,
     "sourceUrl": "https://dvos.de/liga.php?a_liga=45&p=0",
-    "updatedAt": "2026-11-23T08:00:00+01:00",
+    "updatedAt": "2026-11-23T08:11:50.963Z",
     "updateFrequencyHours": 1,
-    "calendarNote": "Die DVOS-Spielplanansicht veröffentlicht keine Spielbeginn-Uhrzeit. Termine werden deshalb als Ganztagstermine geführt."
+    "calendarNote": "Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt."
   },
   "standings": [
     {
@@ -16,10 +16,21 @@
       "played": 8,
       "points": 16,
       "setsFor": 60,
-      "setsAgainst": 20,
-      "wins": 8,
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 1,
+      "team": "TSG Nattheim Darts I",
+      "played": 8,
+      "points": 16,
+      "setsFor": 60,
+      "setsAgainst": 8,
+      "wins": 0,
       "draws": 0,
-      "losses": 0
+      "losses": null
     },
     {
       "rank": 2,
@@ -27,10 +38,10 @@
       "played": 8,
       "points": 12,
       "setsFor": 53,
-      "setsAgainst": 27,
-      "wins": 5,
-      "draws": 2,
-      "losses": 1
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
     },
     {
       "rank": 2,
@@ -38,10 +49,32 @@
       "played": 8,
       "points": 12,
       "setsFor": 53,
-      "setsAgainst": 27,
-      "wins": 6,
-      "draws": 0,
-      "losses": 2
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 2,
+      "team": "SV RV Ohmenheim I",
+      "played": 8,
+      "points": 12,
+      "setsFor": 53,
+      "setsAgainst": 5,
+      "wins": 2,
+      "draws": 1,
+      "losses": null
+    },
+    {
+      "rank": 2,
+      "team": "TSV Game Over II",
+      "played": 8,
+      "points": 12,
+      "setsFor": 53,
+      "setsAgainst": 6,
+      "wins": 0,
+      "draws": 2,
+      "losses": null
     },
     {
       "rank": 4,
@@ -49,10 +82,21 @@
       "played": 8,
       "points": 12,
       "setsFor": 52,
-      "setsAgainst": 28,
-      "wins": 5,
-      "draws": 2,
-      "losses": 1
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 4,
+      "team": "TB Gingen Bulls I",
+      "played": 8,
+      "points": 12,
+      "setsFor": 52,
+      "setsAgainst": 5,
+      "wins": 2,
+      "draws": 1,
+      "losses": null
     },
     {
       "rank": 5,
@@ -60,10 +104,21 @@
       "played": 8,
       "points": 11,
       "setsFor": 44,
-      "setsAgainst": 36,
-      "wins": 5,
-      "draws": 1,
-      "losses": 2
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 5,
+      "team": "Kellerfreunde DJK Göppingen I",
+      "played": 8,
+      "points": 11,
+      "setsFor": 44,
+      "setsAgainst": 5,
+      "wins": 1,
+      "draws": 2,
+      "losses": null
     },
     {
       "rank": 6,
@@ -71,10 +126,21 @@
       "played": 8,
       "points": 6,
       "setsFor": 35,
-      "setsAgainst": 45,
-      "wins": 3,
-      "draws": 0,
-      "losses": 5
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 6,
+      "team": "DCU Oberensingen I",
+      "played": 8,
+      "points": 6,
+      "setsFor": 35,
+      "setsAgainst": 3,
+      "wins": 0,
+      "draws": 5,
+      "losses": null
     },
     {
       "rank": 7,
@@ -82,10 +148,21 @@
       "played": 8,
       "points": 4,
       "setsFor": 25,
-      "setsAgainst": 55,
-      "wins": 2,
-      "draws": 0,
-      "losses": 6
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 7,
+      "team": "1. DC Göppingen II",
+      "played": 8,
+      "points": 4,
+      "setsFor": 25,
+      "setsAgainst": 2,
+      "wins": 0,
+      "draws": 6,
+      "losses": null
     },
     {
       "rank": 8,
@@ -93,10 +170,21 @@
       "played": 8,
       "points": 3,
       "setsFor": 24,
-      "setsAgainst": 56,
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 8,
+      "team": "WSV Mehrstetten Fuenfnullois I",
+      "played": 8,
+      "points": 3,
+      "setsFor": 24,
+      "setsAgainst": 1,
       "wins": 1,
-      "draws": 1,
-      "losses": 6
+      "draws": 6,
+      "losses": null
     },
     {
       "rank": 9,
@@ -104,10 +192,21 @@
       "played": 8,
       "points": 2,
       "setsFor": 29,
-      "setsAgainst": 51,
-      "wins": 0,
-      "draws": 2,
-      "losses": 6
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 9,
+      "team": "TV Steinheim I",
+      "played": 8,
+      "points": 2,
+      "setsFor": 29,
+      "setsAgainst": 0,
+      "wins": 2,
+      "draws": 6,
+      "losses": null
     },
     {
       "rank": 10,
@@ -115,13 +214,34 @@
       "played": 8,
       "points": 2,
       "setsFor": 25,
-      "setsAgainst": 55,
-      "wins": 0,
-      "draws": 2,
-      "losses": 6
+      "setsAgainst": null,
+      "wins": null,
+      "draws": null,
+      "losses": null
+    },
+    {
+      "rank": 10,
+      "team": "DC Lonetal Bernstadt I",
+      "played": 8,
+      "points": 2,
+      "setsFor": 25,
+      "setsAgainst": 0,
+      "wins": 2,
+      "draws": 6,
+      "losses": null
     }
   ],
   "matches": [
+    {
+      "id": "dvos-461",
+      "round": 7,
+      "date": "2026-11-10",
+      "home": "TSG Nattheim Darts I",
+      "away": "TV Steinheim I",
+      "homeScore": 8,
+      "awayScore": 2,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=461&art=1&a_liga=45&spieltag=0"
+    },
     {
       "id": "dvos-497",
       "round": 7,
@@ -130,7 +250,47 @@
       "away": "WSV Mehrstetten Fuenfnullois I",
       "homeScore": 8,
       "awayScore": 2,
-      "reportUrl": "https://dvos.de/spielbericht.php?a_liga=45&art=1&id=497&spieltag=0"
+      "reportUrl": "https://dvos.de/spielbericht.php?id=497&art=1&a_liga=45&spieltag=0"
+    },
+    {
+      "id": "dvos-496",
+      "round": 7,
+      "date": "2026-11-11",
+      "home": "SV RV Ohmenheim I",
+      "away": "1. DC Göppingen II",
+      "homeScore": 8,
+      "awayScore": 2,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=496&art=1&a_liga=45&spieltag=0"
+    },
+    {
+      "id": "dvos-495",
+      "round": 7,
+      "date": "2026-11-11",
+      "home": "Kellerfreunde DJK Göppingen I",
+      "away": "DC Lonetal Bernstadt I",
+      "homeScore": 6,
+      "awayScore": 4,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=495&art=1&a_liga=45&spieltag=0"
+    },
+    {
+      "id": "dvos-494",
+      "round": 7,
+      "date": "2026-11-11",
+      "home": "DCU Oberensingen I",
+      "away": "TSV Game Over II",
+      "homeScore": 2,
+      "awayScore": 8,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=494&art=1&a_liga=45&spieltag=0"
+    },
+    {
+      "id": "dvos-534",
+      "round": 8,
+      "date": "2026-11-17",
+      "home": "1. DC Göppingen II",
+      "away": "WSV Mehrstetten Fuenfnullois I",
+      "homeScore": 7,
+      "awayScore": 3,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=534&art=1&a_liga=45&spieltag=0"
     },
     {
       "id": "dvos-535",
@@ -140,14 +300,84 @@
       "away": "TB Gingen Bulls I",
       "homeScore": 5,
       "awayScore": 5,
-      "reportUrl": "https://dvos.de/spielbericht.php?a_liga=45&art=1&id=535&spieltag=0"
+      "reportUrl": "https://dvos.de/spielbericht.php?id=535&art=1&a_liga=45&spieltag=0"
     },
     {
-      "id": "bulls1-round9",
+      "id": "dvos-570",
+      "round": 8,
+      "date": "2026-11-18",
+      "home": "DC Lonetal Bernstadt I",
+      "away": "SV RV Ohmenheim I",
+      "homeScore": 2,
+      "awayScore": 8,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=570&art=1&a_liga=45&spieltag=0"
+    },
+    {
+      "id": "dvos-571",
+      "round": 8,
+      "date": "2026-11-18",
+      "home": "DCU Oberensingen I",
+      "away": "Kellerfreunde DJK Göppingen I",
+      "homeScore": 3,
+      "awayScore": 7,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=571&art=1&a_liga=45&spieltag=0"
+    },
+    {
+      "id": "dvos-572",
+      "round": 8,
+      "date": "2026-11-18",
+      "home": "TSV Game Over II",
+      "away": "TSG Nattheim Darts I",
+      "homeScore": 4,
+      "awayScore": 6,
+      "reportUrl": "https://dvos.de/spielbericht.php?id=572&art=1&a_liga=45&spieltag=0"
+    },
+    {
+      "id": "dvos-b43e29e45f4748983d6cf9d3",
+      "round": 9,
+      "date": "2026-12-01",
+      "home": "1. DC Göppingen II",
+      "away": "TV Steinheim I",
+      "homeScore": null,
+      "awayScore": null,
+      "reportUrl": null
+    },
+    {
+      "id": "dvos-2fba09741165f4083556e5ec",
       "round": 9,
       "date": "2026-12-02",
       "home": "Kellerfreunde DJK Göppingen I",
       "away": "TB Gingen Bulls I",
+      "homeScore": null,
+      "awayScore": null,
+      "reportUrl": null
+    },
+    {
+      "id": "dvos-8985c65e2351b8c32d605e90",
+      "round": 9,
+      "date": "2026-12-02",
+      "home": "SV RV Ohmenheim I",
+      "away": "TSG Nattheim Darts I",
+      "homeScore": null,
+      "awayScore": null,
+      "reportUrl": null
+    },
+    {
+      "id": "dvos-85dae39766f35a327b1bd461",
+      "round": 9,
+      "date": "2026-12-02",
+      "home": "TSV Game Over II",
+      "away": "DC Lonetal Bernstadt I",
+      "homeScore": null,
+      "awayScore": null,
+      "reportUrl": null
+    },
+    {
+      "id": "dvos-adb7f2eba060c9b940177f46",
+      "round": 9,
+      "date": "2026-12-02",
+      "home": "WSV Mehrstetten Fuenfnullois I",
+      "away": "DCU Oberensingen I",
       "homeScore": null,
       "awayScore": null,
       "reportUrl": null

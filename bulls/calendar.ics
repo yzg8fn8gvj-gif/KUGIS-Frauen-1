@@ -27,32 +27,41 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:dvos-497@tbgingenbulls1
-DTSTAMP:20261123T080000Z
+DTSTAMP:20261123T081150Z
 SUMMARY:TB Gingen Bulls I – WSV Mehrstetten Fuenfnullois I
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
-DESCRIPTION:Heimspiel\nSpieltag 7\nErgebnis: 8:2\nUhrzeit von der DVOS-Quelle nicht veröffentlicht; Termin ganztägig
-URL:https://dvos.de/spielbericht.php?a_liga=45&art=1&id=497&spieltag=0
+DESCRIPTION:Heimspiel\nSpieltag 7\nErgebnis: 8:2\nUhrzeit: von der DVO
+ S-Quelle nicht veröffentlicht\; Termin daher ganztägig\nQuelle: htt
+ ps://dvos.de/liga.php?a_liga=45&p=0
+URL:https://dvos.de/spielbericht.php?id=497&art=1&a_liga=45&spieltag=0
 STATUS:CONFIRMED
+TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:dvos-535@tbgingenbulls1
-DTSTAMP:20261123T080000Z
+DTSTAMP:20261123T081150Z
 SUMMARY:TV Steinheim I – TB Gingen Bulls I
 DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
-DESCRIPTION:Auswärtsspiel\nSpieltag 8\nErgebnis: 5:5\nUhrzeit von der DVOS-Quelle nicht veröffentlicht; Termin ganztägig
-URL:https://dvos.de/spielbericht.php?a_liga=45&art=1&id=535&spieltag=0
+DESCRIPTION:Auswärtsspiel\nSpieltag 8\nErgebnis: 5:5\nUhrzeit: von de
+ r DVOS-Quelle nicht veröffentlicht\; Termin daher ganztägig\nQuelle
+ : https://dvos.de/liga.php?a_liga=45&p=0
+URL:https://dvos.de/spielbericht.php?id=535&art=1&a_liga=45&spieltag=0
 STATUS:CONFIRMED
+TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:bulls1-round9@tbgingenbulls1
-DTSTAMP:20261123T080000Z
+UID:dvos-2fba09741165f4083556e5ec@tbgingenbulls1
+DTSTAMP:20261123T081150Z
 SUMMARY:Kellerfreunde DJK Göppingen I – TB Gingen Bulls I
 DTSTART;VALUE=DATE:20261202
 DTEND;VALUE=DATE:20261203
-DESCRIPTION:Auswärtsspiel\nSpieltag 9\nUhrzeit von der DVOS-Quelle nicht veröffentlicht; Termin ganztägig\nQuelle: https://dvos.de/liga.php?a_liga=45&p=0
+DESCRIPTION:Auswärtsspiel\nSpieltag 9\nUhrzeit: von der DVOS-Quelle n
+ icht veröffentlicht\; Termin daher ganztägig\nQuelle: https://dvos.
+ de/liga.php?a_liga=45&p=0
 URL:https://dvos.de/liga.php?a_liga=45&p=0
 STATUS:CONFIRMED
+TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR
