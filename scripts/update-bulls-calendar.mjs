@@ -135,6 +135,18 @@ const allRows = rowsFrom(html);
 const standings = parseStandings(tables);
 const matches = parseFixtures(allRows);
 if (!standings.length && !matches.length) {
+  const nameAt = html.indexOf(config.teamName);
+  const tableAt = html.toLowerCase().indexOf('<table');
+  const rowAt = html.toLowerCase().indexOf('<tr');
+  console.log('DVOS diagnostics:', JSON.stringify({
+    htmlLength: html.length,
+    tableCount: (html.match(/<table\\b/gi) || []).length,
+    rowCount: (html.match(/<tr\\b/gi) || []).length,
+    teamNameFound: nameAt >= 0,
+    teamContext: nameAt >= 0 ? html.slice(Math.max(0, nameAt - 500), nameAt + 1000) : '',
+    firstTableContext: tableAt >= 0 ? html.slice(tableAt, tableAt + 1800) : '',
+    firstRowContext: rowAt >= 0 ? html.slice(rowAt, rowAt + 900) : ''
+  }));
   throw new Error('DVOS-Seite wurde geladen, aber Tabelle und Spielplan konnten nicht erkannt werden. Vorhandene Daten bleiben erhalten.');
 }
 if (standings.length && !standings.some(row => row.team === config.teamName)) {
