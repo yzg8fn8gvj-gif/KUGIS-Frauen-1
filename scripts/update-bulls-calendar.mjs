@@ -97,8 +97,8 @@ function parseCupFixtures(fragment) {
       const scoreParts = parts.slice(parts.findIndex(part => part === away) + 1);
       scoreNumbers = scoreParts.map(num).filter(value => value !== null);
     } else {
-      const body = text.replace(match[0], '').replace(/DVOS-Pokal[\\s\\S]*$/i, '').trim();
-      const pair = body.match(/^(.*?)\\s+-\\s+(.*?)(?:\\s+(\\d{1,2})\\s*:\\s*(\\d{1,2}))?\\s*$/);
+      const body = text.replace(match[0], '').replace(/DVOS-Pokal[\s\S]*$/i, '').trim();
+      const pair = body.match(/^(.*?)\s+-\s+(.*?)(?:\s+(\d{1,2})\s*:\s*(\d{1,2}))?\s*$/);
       if (pair) {
         home = pair[1].trim();
         away = pair[2].trim();
@@ -253,7 +253,8 @@ const data = {
     calendarNote: 'Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt.'
   },
   standings,
-  matches
+  matches,
+  cupMatches
 };
 await writeFile(new URL('../bulls/data.json', import.meta.url), JSON.stringify(data, null, 2) + '\n', 'utf8');
 
