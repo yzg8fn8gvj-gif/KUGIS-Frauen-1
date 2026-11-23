@@ -73,19 +73,19 @@ function fixtureRowsFrom(fragment) {
   return rows;
 }
 function parseCupFixtures(fragment) {
-  const roundMarkers = [...fragment.matchAll(/Runde\\s*(\\d+)|Halbfinale|Platz\\s*3|Finale/gi)];
-  const dateMatches = [...fragment.matchAll(/(?:Mo|Di|Mi|Do|Fr|Sa|So)\\.?\\s*(\\d{1,2}\\.\\d{1,2}\\.\\d{4})/gi)];
+  const roundMarkers = [...fragment.matchAll(/Runde\s*(\d+)|Halbfinale|Platz\s*3|Finale/gi)];
+  const dateMatches = [...fragment.matchAll(/(?:Mo|Di|Mi|Do|Fr|Sa|So)\.?\s*(\d{1,2}\.\d{1,2}\.\d{4})/gi)];
   const games = new Map();
   for (let i = 0; i < dateMatches.length; i++) {
     const match = dateMatches[i];
     const end = i + 1 < dateMatches.length ? dateMatches[i + 1].index : fragment.length;
     const chunk = fragment.slice(match.index, end);
     const text = decode(chunk
-      .replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi, ' ')
-      .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi, ' ')
+      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
       .replace(/<[^>]+>/g, ' ')
       .replace(/&nbsp;|&#160;/gi, ' ')
-      .replace(/\\s+/g, ' ')).trim();
+      .replace(/\s+/g, ' ')).trim();
     const parts = text.split('|').map(part => part.trim()).filter(Boolean);
     if (parts.length < 3) continue;
     const date = parseDate(match[1]);
@@ -96,7 +96,7 @@ function parseCupFixtures(fragment) {
     const scoreNumbers = scoreParts.map(num).filter(value => value !== null);
     const marker = roundMarkers.filter(item => item.index < match.index).at(-1);
     const roundText = marker ? marker[0] : '';
-    const round = roundText.match(/Runde\\s*(\\d+)/i)?.[1] || roundText;
+    const round = roundText.match(/Runde\s*(\d+)/i)?.[1] || roundText;
     const stableKey = [round, home, away].join('|');
     const id = 'cup-' + createHash('sha256').update(config.season + '|' + stableKey).digest('hex').slice(0, 24);
     games.set(stableKey, {
@@ -297,12 +297,14 @@ for (const game of [...teamMatches.map(game => ({...game, competition:'Liga'})),
   const opponent = homeGame ? game.away : game.home;
   const title = homeGame ? config.teamName + ' – ' + opponent : opponent + ' – ' + config.teamName;
   const score = game.homeScore === null || game.awayScore === null ? '' : 'Ergebnis: ' + game.homeScore + ':' + game.awayScore;
+  const isCup = game.competition === 'Pokal';
   const details = [
+    isCup ? 'DVOS-Pokal' : 'Ligaspiel',
     homeGame ? 'Heimspiel' : 'Auswärtsspiel',
-    game.round ? 'Spieltag ' + game.round : '',
+    game.round ? (isCup ? 'Pokalrunde ' : 'Spieltag ') + game.round : '',
     score,
     'Uhrzeit: von der DVOS-Quelle nicht veröffentlicht; Termin daher ganztägig',
-    'Quelle: ' + sourceUrl.href
+    'Quelle: ' + (isCup ? 'https://dvos.de/pokal.php' : sourceUrl.href)
   ].filter(Boolean).join('\n');
   const eventUrl = game.reportUrl || (isCup ? 'https://dvos.de/pokal.php' : sourceUrl.href);
   lines.push(
