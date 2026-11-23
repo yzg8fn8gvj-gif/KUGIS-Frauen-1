@@ -211,10 +211,132 @@ function parseFixtures(allRows) {
 }
 const tableGroups = [...html.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)].map(match => rowsFrom(match[1]));
 const layoutRows = rowsFrom(html);
-const fixtureRows = fixtureRowsFrom(html);
 const tables = tableGroups.length ? tableGroups : [layoutRows];
 const standings = parseStandings(tables);
-const matches = parseFixtures(fixtureRows);
+
+// DVOS zeigt in der Ligaansicht mehrere Spieltage über den Parameter p.
+// Alle verfügbaren Seiten einlesen und nach Spieltag/Teams zusammenführen.
+const fixtureMap = new Map();
+const pageDiagnostics = [];
+async function addFixturesFromPage(pageNumber, pageHtml) {
+  const parsed = parseFixtures(fixtureRowsFrom(pageHtml));
+  let added = 0;
+  for (const game of parsed) {
+    const key = [game.round, game.home, game.away].join('|');
+    if (!fixtureMap.has(key)) added++;
+    const previous = fixtureMap.get(key);
+    fixtureMap.set(key, previous ? {
+      ...previous,
+      ...game,
+      date: game.date || previous.date,
+      reportUrl: game.reportUrl || previous.reportUrl,
+      homeScore: game.homeScore ?? previous.homeScore,
+      awayScore: game.awayScore ?? previous.awayScore
+    } : game);
+  }
+  pageDiagnostics.push({ page: pageNumber, parsed: parsed.length, added });
+  return added;
+}
+await addFixturesFromPage(0, html);
+let emptyPages = 0;
+for (let pageNumber = 1; pageNumber <= 12; pageNumber++) {
+  const pageUrl = new URL(sourceUrl.href);
+  pageUrl.searchParams.set('p', String(pageNumber));
+  try {
+    const pageResponse = await fetch(pageUrl, {
+      headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
+      signal: AbortSignal.timeout(30000)
+    });
+    if (!pageResponse.ok) break;
+    const pageHtml = await pageResponse.text();
+    if (!pageHtml || !pageHtml.includes(config.teamName)) break;
+    const added = await addFixturesFromPage(pageNumber, pageHtml);
+    if (added === 0) emptyPages++;
+    else emptyPages = 0;
+    if (emptyPages >= 2) break;
+  } catch (error) {
+    console.warn('DVOS-Ligaseite p=' + pageNumber + ' konnte nicht geladen werden:', error.message);
+    break;
+  }
+}
+const matches = [...fixtureMap.values()].sort((a, b) => a.date.localeCompare(b.date));
+
+// Die Rückrunde wird nur dann aus der Hinrunde abgeleitet, wenn alle 9
+// Hinrunden-Spieltage vollständig (je 5 Begegnungen mit 10 Teams) vorliegen.
+function buildReturnFixtures(fixtures) {
+  const teams = new Set(standings.map(row => row.team));
+  if (teams.size !== 10) return [];
+  const firstLeg = fixtures.filter(game => Number(game.round) >= 1 && Number(game.round) <= 9);
+  for (let round = 1; round <= 9; round++) {
+    const games = firstLeg.filter(game => Number(game.round) === round);
+    const involved = games.flatMap(game => [game.home, game.away]);
+    if (games.length !== 5 || involved.length !== 10 || new Set(involved).size !== 10) return [];
+  }
+  return firstLeg.map(game => {
+    const round = Number(game.round) + 9;
+    const home = game.away;
+    const away = game.home;
+    const stableKey = round + '|' + home + '|' + away;
+    const id = 'dvos-' + createHash('sha256').update(config.leagueId + '|' + stableKey).digest('hex').slice(0, 24);
+    return {
+      id, round, date: null, home, away,
+      homeScore: null, awayScore: null, reportUrl: null,
+      inferred: true
+    };
+  }).sort((a, b) => a.round - b.round || a.home.localeCompare(b.home, 'de'));
+}
+
+// Die Mannschafts-Auswahl wird aus dem offiziellen DVOS-Formular gelesen.
+async function findTeamAnalysisUrl() {
+  const fallback = 'https://dvos.de/ligaauswertung.php';
+  try {
+    const response = await fetch(fallback, {
+      headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
+      signal: AbortSignal.timeout(30000)
+    });
+    if (!response.ok) return fallback;
+    const page = await response.text();
+    for (const formMatch of page.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)) {
+      const formAttrs = formMatch[1];
+      const formHtml = formMatch[2];
+      const actionMatch = formAttrs.match(/action\s*=\s*["']([^"']*)["']/i);
+      const action = new URL(actionMatch?.[1] || fallback, fallback);
+      const params = new URLSearchParams();
+      for (const input of formHtml.matchAll(/<input\b([^>]*)>/gi)) {
+        const attrs = input[1];
+        const name = attrs.match(/name\s*=\s*["']([^"']+)["']/i)?.[1];
+        const value = attrs.match(/value\s*=\s*["']([^"']*)["']/i)?.[1];
+        const type = attrs.match(/type\s*=\s*["']([^"']+)["']/i)?.[1] || 'text';
+        if (name && value !== undefined && type.toLowerCase() === 'hidden') params.set(name, decode(value));
+      }
+      for (const select of formHtml.matchAll(/<select\b([^>]*)>([\s\S]*?)<\/select>/gi)) {
+        const selectName = select[1].match(/name\s*=\s*["']([^"']+)["']/i)?.[1];
+        if (!selectName) continue;
+        for (const option of select[2].matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/gi)) {
+          const optionText = clean(option[2]);
+          if (optionText.toLowerCase() !== config.teamName.toLowerCase()) continue;
+          const optionValue = option[1].match(/value\s*=\s*["']([^"']*)["']/i)?.[1];
+          if (!optionValue) continue;
+          params.set(selectName, decode(optionValue));
+          if (selectName.toLowerCase() === 'ref2') params.set('ref1', 'id_m');
+          else if (!params.has('ref1')) {
+            params.set('ref1', 'id_m');
+            params.set('ref2', decode(optionValue));
+          }
+          if (params.get('ref1') === 'id_m' && params.has('ref2')) {
+            action.search = params.toString();
+            return action.href;
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.warn('DVOS-Mannschaftsauswertung konnte nicht bestimmt werden:', error.message);
+  }
+  return fallback;
+}
+const returnMatches = buildReturnFixtures(matches);
+const teamAnalysisUrl = await findTeamAnalysisUrl();
 const cupResponse = await fetch('https://dvos.de/print_pokal.php', {
   headers: { 'User-Agent': 'TB-Gingen-Bulls-I-Kalender/1.0', Accept: 'text/html,application/xhtml+xml' },
   signal: AbortSignal.timeout(30000)
@@ -250,10 +372,14 @@ const data = {
     sourceUrl: sourceUrl.href,
     updatedAt: now.toISOString(),
     updateFrequencyHours: 1,
+    scrapedLeaguePages: pageDiagnostics,
+    returnRoundAvailable: returnMatches.length > 0,
+    teamAnalysisUrl,
     calendarNote: 'Die DVOS-Spielplanansicht veröffentlicht kein Spielbeginn-Uhrzeitfeld. Kalendertermine werden deshalb als Ganztagstermine geführt.'
   },
   standings,
   matches,
+  returnMatches,
   cupMatches
 };
 await writeFile(new URL('../bulls/data.json', import.meta.url), JSON.stringify(data, null, 2) + '\n', 'utf8');
@@ -306,6 +432,7 @@ const lines = [
   'END:VTIMEZONE'
 ];
 for (const game of [...teamMatches.map(game => ({...game, competition:'Liga'})), ...cupMatches.map(game => ({...game, competition:'Pokal'}))]) {
+  if (!game.date) continue;
   const homeGame = game.home === config.teamName;
   const opponent = homeGame ? game.away : game.home;
   const title = homeGame ? config.teamName + ' – ' + opponent : opponent + ' – ' + config.teamName;
@@ -336,4 +463,4 @@ for (const game of [...teamMatches.map(game => ({...game, competition:'Liga'})),
 }
 lines.push('END:VCALENDAR');
 await writeFile(new URL('../bulls/calendar.ics', import.meta.url), lines.map(fold).join('\r\n') + '\r\n', 'utf8');
-console.log('Bulls-I-Daten aktualisiert: ' + standings.length + ' Tabellenzeilen, ' + matches.length + ' Ligaspiele, ' + cupMatches.length + ' Pokalspiele, ' + (teamMatches.length + cupMatches.length) + ' Kalendertermine.');
+console.log('Bulls-I-Daten aktualisiert: ' + standings.length + ' Tabellenzeilen, ' + matches.length + ' Ligaspiele aus ' + pageDiagnostics.length + ' DVOS-Seiten, ' + returnMatches.length + ' abgeleitete Rückrundenspiele, ' + cupMatches.length + ' Pokalspiele. Seiten: ' + JSON.stringify(pageDiagnostics));
