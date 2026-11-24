@@ -1,5 +1,5 @@
-const base = 160000;
-const last = 161799;
+const base = 162801;
+const last = 164000;
 const org = 216;
 const aliases = ["kugis", "sgkugis", "kuchengingensussen"];
 const norm = s => String(s ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
@@ -35,3 +35,25 @@ async function worker() {
 }
 await Promise.all(Array.from({length:8},()=>worker()));
 console.log("DISCOVERY_COMPLETE "+JSON.stringify(found.sort((a,b)=>a.id-b.id)));
+const poUrl = new URL("https://spo.handball4all.de/service/if_g_json.php");
+poUrl.search = new URLSearchParams({cmd:"po",do:"2026-11-28",og:String(org)}).toString();
+try {
+  const res = await fetch(poUrl,{headers:{Accept:"application/json,text/plain,*/*"},signal:AbortSignal.timeout(20000)});
+  if (res.ok) {
+    const po = await res.json();
+    const seen = new Set();
+    const inspect = (x,d=0) => {
+      if(d>9||x==null)return;
+      if(Array.isArray(x)){for(const y of x)inspect(y,d+1);return;}
+      if(typeof x!=="object")return;
+      const direct = Object.entries(x).filter(([k,v])=>typeof v==="string" && aliases.some(a=>norm(v).includes(a)));
+      if(direct.length) {
+        const key=JSON.stringify(x);
+        if(!seen.has(key)){seen.add(key);console.log("PO_KUGIS_OBJECT "+JSON.stringify(x).slice(0,5000));}
+      }
+      for(const v of Object.values(x))inspect(v,d+1);
+    };
+    inspect(po);
+  }
+} catch (error) { console.log("PO_PROBE_ERROR "+String(error)); }
+
