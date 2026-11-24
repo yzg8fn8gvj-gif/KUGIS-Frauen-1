@@ -18,7 +18,8 @@
       ],
       "calendarFile": "calendar.ics",
       "uidSuffix": "frauen1",
-      "season": "2026 / 27"
+      "season": "2026 / 27",
+      "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162286"
     },
     {
       "id": "frauen2",
@@ -33,7 +34,8 @@
       ],
       "calendarFile": "calendar-frauen2.ics",
       "uidSuffix": "frauen2",
-      "season": "2026 / 27"
+      "season": "2026 / 27",
+      "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162301"
     },
     {
       "id": "maenner1",
@@ -49,7 +51,8 @@
       ],
       "calendarFile": "calendar-maenner1.ics",
       "uidSuffix": "maenner1",
-      "season": "2026 / 27"
+      "season": "2026 / 27",
+      "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=161176"
     },
     {
       "id": "maenner2",
@@ -64,7 +67,8 @@
       ],
       "calendarFile": "calendar-maenner2.ics",
       "uidSuffix": "maenner2",
-      "season": "2026 / 27"
+      "season": "2026 / 27",
+      "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162231"
     },
     {
       "id": "maenner3",
@@ -79,7 +83,8 @@
       ],
       "calendarFile": "calendar-maenner3.ics",
       "uidSuffix": "maenner3",
-      "season": "2026 / 27"
+      "season": "2026 / 27",
+      "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162261"
     }
   ],
   "note": "Für den Saisonwechsel werden nur die leagueId-Werte der aktiven Mannschaften geändert. Die Kalender-Abo-Adressen bleiben unverändert. Jugendmannschaften sind absichtlich nicht enthalten."
