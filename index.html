@@ -19,6 +19,15 @@ main{padding:16px}.screen{display:none;animation:fade .18s ease}.screen.active{d
 </style>
 </head>
 <body>
+<div id="standbyNotice" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(145deg,#101b32,#243d65);color:#fff;display:flex;align-items:center;justify-content:center;padding:28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-align:center">
+  <div style="max-width:440px">
+    <div style="font-size:22px;font-weight:850;letter-spacing:.2px;margin-bottom:28px">KuGiS Aktive</div>
+    <div style="width:58px;height:58px;border:2px solid rgba(255,255,255,.3);border-radius:18px;display:grid;place-items:center;margin:0 auto 24px;font-size:27px">⏸</div>
+    <h1 style="font-size:27px;line-height:1.2;margin:0 0 14px">Vorübergehend nicht verfügbar</h1>
+    <p style="font-size:16px;line-height:1.6;color:#d8e1ef;margin:0">Unsere App befindet sich derzeit vorübergehend im Standby. Wir klären aktuell die erforderlichen Nutzungsrechte für die bereitgestellten Handball-Daten.</p>
+    <p style="font-size:13px;color:#b8c7dc;margin:24px 0 0">Sobald die Freigabe vorliegt, sind wir wieder für euch da.</p>
+  </div>
+</div>
 <div class="app">
 <header class="hero">
   <div class="brandrow"><div class="crest">KuGiS</div><div><div class="brand" id="teamBrand">KuGiS Aktive</div><div class="subbrand">Offizielle Spieldaten · Handball4all</div></div><div class="season" id="seasonBadge">2026 / 27</div></div>
@@ -91,6 +100,7 @@ main{padding:16px}.screen{display:none;animation:fade .18s ease}.screen.active{d
 <script>
 (() => {
 'use strict';
+if(document.getElementById('standbyNotice')) return;
 const CONFIG={orgId:216,api:'https://spo.handball4all.de/service/if_g_json.php',refreshMs:300000};
 const $=id=>document.getElementById(id);
 const DEFAULT_TEAMS=[{"id":"frauen1","label":"Frauen 1","gender":"Frauen","leagueId":162286,"leagueName":"Frauen Bezirksoberliga Staffel 2","aliases":["KuGiS","Kuchen-Gingen-Süssen Handball","Kuchen-Gingen-Suessen Handball"],"calendarFile":"calendar.ics","season":"2026 / 27"},{"id":"frauen2","label":"Frauen 2","gender":"Frauen","leagueId":162301,"leagueName":"Frauen Bezirksklasse Staffel 1","aliases":["KuGiS 2","Kuchen-Gingen-Süssen Handball 2","Kuchen-Gingen-Suessen Handball 2"],"calendarFile":"calendar-frauen2.ics","season":"2026 / 27"},{"id":"frauen3","label":"Frauen 3","gender":"Frauen","leagueId":162301,"leagueName":"Frauen Bezirksklasse Staffel 1","aliases":["KuGiS 3","Kuchen-Gingen-Süssen Handball 3","Kuchen-Gingen-Suessen Handball 3"],"calendarFile":"calendar-frauen3.ics","season":"2026 / 27"},{"id":"maenner1","label":"Männer 1","gender":"Männer","leagueId":161176,"leagueName":"Männer-Landesliga Staffel 4","aliases":["KuGiS","SG KuGiS","Kuchen-Gingen-Süssen Handball","Kuchen-Gingen-Suessen Handball"],"calendarFile":"calendar-maenner1.ics","season":"2026 / 27"},{"id":"maenner2","label":"Männer 2","gender":"Männer","leagueId":162231,"leagueName":"Männer Bezirksliga Staffel 1","aliases":["KuGiS 2","Kuchen-Gingen-Süssen Handball 2","Kuchen-Gingen-Suessen Handball 2"],"calendarFile":"calendar-maenner2.ics","season":"2026 / 27"},{"id":"maenner3","label":"Männer 3","gender":"Männer","leagueId":162261,"leagueName":"Männer 2 Bezirksklasse Staffel 1","aliases":["KuGiS 3","Kuchen-Gingen-Süssen Handball 3","Kuchen-Gingen-Suessen Handball 3"],"calendarFile":"calendar-maenner3.ics","season":"2026 / 27"}];
