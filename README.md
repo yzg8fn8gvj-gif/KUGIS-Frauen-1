@@ -1,21 +1,28 @@
-# KuGiS Frauen 1 – Web-App
+# KuGiS Handball – Web-App
 
-Eigene iPhone-freundliche Web-App für Tabelle, Ergebnisse, Spielplan und Live-Center.
+iPhone-freundliche Web-App für die fünf aktiven Mannschaften der KuGiS: Frauen 1, Frauen 2, Männer 1, Männer 2 und Männer 3. Jugendmannschaften sind nicht enthalten.
 
-## Offizielle Liga
-- Verband (ogId): 216
-- Liga (lId): 162286
-- Quelle: Handball4all
-- JSON-Endpunkt: https://spo.handball4all.de/service/if_g_json.php
-- Abfrageparameter: cmd=ps, og=216, cl=162286, ca=0, do=YYYY-MM-DD
+## Mannschaftswechsel
+Die Auswahl oben in der App lädt für jedes Team die eigene Handball4all-Liga. Die Zuordnungen und Liga-IDs liegen zentral in `calendar-config.json`.
+
+Für einen Saisonwechsel werden dort die `leagueId`-Werte der fünf Mannschaften aktualisiert. Die App und die Kalender-Abonnement-Adressen bleiben bestehen.
+
+## Kalender-Abos
+Jede aktive Mannschaft hat einen eigenen, dauerhaft gleichbleibenden iCalendar-Feed:
+- Frauen 1: `calendar.ics`
+- Frauen 2: `calendar-frauen2.ics`
+- Männer 1: `calendar-maenner1.ics`
+- Männer 2: `calendar-maenner2.ics`
+- Männer 3: `calendar-maenner3.ics`
+
+GitHub Actions aktualisiert die Feeds stündlich aus Handball4all. Der Spielplan wird zusätzlich beim Öffnen der App aktualisiert.
 
 ## Veröffentlichung
-Der Workflow unter .github/workflows/deploy.yml veröffentlicht den Repository-Inhalt mit GitHub Pages. In **Settings → Pages** muss als Build-Quelle **GitHub Actions** ausgewählt sein, falls GitHub Pages nicht bereits so eingerichtet wurde.
-Nach erfolgreichem Lauf lautet die Adresse normalerweise:
+Die Website wird über GitHub Pages und den Workflow unter `.github/workflows/deploy.yml` veröffentlicht:
 https://yzg8fn8gvj-gif.github.io/KUGIS-Frauen-1/
 
-## Datenverbindung
-Die App versucht den direkten Handball4all-Abruf und danach einen öffentlichen Fallback. Falls der Browser den Abruf wegen CORS blockiert, kann der optionale worker.js als Cloudflare Worker bereitgestellt werden. Seine URL kann anschließend in den App-Einstellungen eingetragen werden.
+## Datenquelle
+Verband (ogId): 216  
+API: https://spo.handball4all.de/service/if_g_json.php
 
-## Grenzen
-Die Handball4all-Schnittstelle ist inoffiziell dokumentiert und kann sich ändern. Es werden nur echte gelieferte Daten angezeigt. Torschützinnen und Live-Ticker erscheinen nur, wenn die Quelle die entsprechenden Informationen für diese Liga bzw. Partie veröffentlicht. Die Liga-ID stammt aus dem vom Nutzer bereitgestellten offiziellen Ligalink.
+Die Handball4all-Schnittstelle ist nicht offiziell dokumentiert und kann sich ändern. Die App zeigt nur tatsächlich gelieferte Daten.
