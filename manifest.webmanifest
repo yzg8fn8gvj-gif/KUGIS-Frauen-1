@@ -1,7 +1,7 @@
 {
-  "name": "KuGiS Frauen 1",
-  "short_name": "KuGiS F1",
-  "description": "Tabelle, Ergebnisse und Spielplan der KuGiS Frauen 1",
+  "name": "KuGiS Handball",
+  "short_name": "KuGiS",
+  "description": "Tabelle, Ergebnisse, Spielplan und Kalender der aktiven KuGiS-Frauen- und Männermannschaften",
   "lang": "de-DE",
   "start_url": "./",
   "scope": "./",
