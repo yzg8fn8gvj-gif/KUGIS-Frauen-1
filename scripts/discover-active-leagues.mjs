@@ -57,3 +57,18 @@ try {
   }
 } catch (error) { console.log("PO_PROBE_ERROR "+String(error)); }
 
+
+for (const [label, params] of [
+  ["ps_by_m1_teamid", {cmd:"ps",ct:"1332186",og:"216",ca:"1"}],
+  ["ical_by_m1_teamid", {cmd:"ical",ct:"1332186",og:"216"}],
+  ["po_by_m1_teamid", {cmd:"po",ct:"1332186",og:"216",do:"2026-11-28"}],
+  ["pcu_by_club", {cmd:"pcu",c:"",og:"216"}]
+]) {
+  try {
+    const u = new URL("https://spo.handball4all.de/service/if_g_json.php");
+    u.search = new URLSearchParams(params).toString();
+    const r = await fetch(u,{headers:{Accept:"application/json,text/plain,*/*"},signal:AbortSignal.timeout(15000)});
+    const t = await r.text();
+    console.log("PROBE_"+label+" status="+r.status+" type="+r.headers.get("content-type")+" body="+t.slice(0,3500).replace(/\s+/g," "));
+  } catch(e) { console.log("PROBE_"+label+"_ERROR "+String(e)); }
+}
