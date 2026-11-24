@@ -27,287 +27,331 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:901809@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – HC Lustenau
 DTSTART;TZID=Europe/Berlin:20261003T190000
 DTEND;TZID=Europe/Berlin:20261003T210000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 32:21\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 32:21\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901814@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TSG Schnaith. – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20261010T193000
 DTEND;TZID=Europe/Berlin:20261010T213000
 LOCATION:Ballspielhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis: 33:19\nSpielplan
- : undefined
-URL:undefined
+ : https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv
+ #/league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901819@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – TG Biberach
 DTSTART;TZID=Europe/Berlin:20261018T180000
 DTEND;TZID=Europe/Berlin:20261018T200000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 25:21\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 25:21\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901823@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TG Geislingen – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20261024T190000
 DTEND;TZID=Europe/Berlin:20261024T210000
 LOCATION:Michelberghalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis: 32:31\nSpielplan
- : undefined
-URL:undefined
+ : https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv
+ #/league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901828@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – HSG O'ko/Kö'br
 DTSTART;TZID=Europe/Berlin:20261031T190000
 DTEND;TZID=Europe/Berlin:20261031T210000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 28:33\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 28:33\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901837@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – MTG Wangen 2
 DTSTART;TZID=Europe/Berlin:20261114T200000
 DTEND;TZID=Europe/Berlin:20261114T220000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 32:28\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 32:28\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901846@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – TV Steinh./A.
 DTSTART;TZID=Europe/Berlin:20261121T190000
 DTEND;TZID=Europe/Berlin:20261121T210000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 31:28\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis: 31:28\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901847@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:SC Vöhringen – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20261128T193000
 DTEND;TZID=Europe/Berlin:20261128T213000
 LOCATION:Sporthalle Sportpark
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901853@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – Bad Saulgau
 DTSTART;TZID=Europe/Berlin:20261204T203000
 DTEND;TZID=Europe/Berlin:20261204T223000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901859@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:SG Hof/Hütt 2 – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20261212T160000
 DTEND;TZID=Europe/Berlin:20261212T180000
 LOCATION:Talsporthalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901913@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – SC Vöhringen
 DTSTART;TZID=Europe/Berlin:20270109T200000
 DTEND;TZID=Europe/Berlin:20270109T220000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901832@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:BW Feldkirch – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20270130T160000
 DTEND;TZID=Europe/Berlin:20270130T180000
 LOCATION:Reichenfeldhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901875@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:HC Lustenau – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20270213T190000
 DTEND;TZID=Europe/Berlin:20270213T210000
 LOCATION:Sporthalle Gymnasium
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901880@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – TSG Schnaith.
 DTSTART;TZID=Europe/Berlin:20270220T200000
 DTEND;TZID=Europe/Berlin:20270220T220000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901885@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TG Biberach – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20270227T193000
 DTEND;TZID=Europe/Berlin:20270227T213000
 LOCATION:Mali-Sporthalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901889@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – TG Geislingen
 DTSTART;TZID=Europe/Berlin:20270306T200000
 DTEND;TZID=Europe/Berlin:20270306T220000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901894@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:HSG O'ko/Kö'br – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20270313T193000
 DTEND;TZID=Europe/Berlin:20270313T213000
 LOCATION:Herwartsteinhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901898@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – BW Feldkirch
 DTSTART;TZID=Europe/Berlin:20270320T200000
 DTEND;TZID=Europe/Berlin:20270320T220000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901903@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:MTG Wangen 2 – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20270404T140000
 DTEND;TZID=Europe/Berlin:20270404T160000
 LOCATION:Argenhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901912@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TV Steinh./A. – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20270410T200000
 DTEND;TZID=Europe/Berlin:20270410T220000
 LOCATION:Wentalhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901925@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 1 – SG Hof/Hütt 2
 DTSTART;TZID=Europe/Berlin:20270417T200000
 DTEND;TZID=Europe/Berlin:20270417T220000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:901919@kugis-maenner1
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:Bad Saulgau – KuGiS Männer 1
 DTSTART;TZID=Europe/Berlin:20270424T180000
 DTEND;TZID=Europe/Berlin:20270424T200000
 LOCATION:Sporthalle im Kronried
 DESCRIPTION:Auswärtsspiel KuGiS Männer 1\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=161176
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=161176
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT

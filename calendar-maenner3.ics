@@ -27,209 +27,241 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:350556@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – HU Göppingen 3
 DTSTART;TZID=Europe/Berlin:20260919T150000
 DTEND;TZID=Europe/Berlin:20260919T170000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis: 24:23\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis: 24:23\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350562@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TEAM Esslingen 3 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20260927T150000
 DTEND;TZID=Europe/Berlin:20260927T170000
 LOCATION:Sporthalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis: 20:24\nSpielplan
- : undefined
-URL:undefined
+ : https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv
+ #/league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350566@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – SKV Unterens. 3
 DTSTART;TZID=Europe/Berlin:20261003T170000
 DTEND;TZID=Europe/Berlin:20261003T190000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis: 28:19\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis: 28:19\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350577@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TV Reichenbach 3 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20261107T163000
 DTEND;TZID=Europe/Berlin:20261107T183000
 LOCATION:Brühlhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis: 24:24\nSpielplan
- : undefined
-URL:undefined
+ : https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv
+ #/league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350578@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – HSG Ostfildern 2
 DTSTART;TZID=Europe/Berlin:20261114T160000
 DTEND;TZID=Europe/Berlin:20261114T180000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis: 25:29\nSpielplan: und
- efined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis: 25:29\nSpielplan: htt
+ ps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/lea
+ gue?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350582@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TSV Denkendorf 3 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20261128T180000
 DTEND;TZID=Europe/Berlin:20261128T200000
 LOCATION:Sporthalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350600@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – TEAM Esslingen 3
 DTSTART;TZID=Europe/Berlin:20261205T130000
 DTEND;TZID=Europe/Berlin:20261205T150000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350590@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:HC Wernau 2 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20261213T154500
 DTEND;TZID=Europe/Berlin:20261213T174500
 LOCATION:Neckartal-Sporthalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350592@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:HU Göppingen 3 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20261219T123000
 DTEND;TZID=Europe/Berlin:20261219T143000
 LOCATION:Parkhaushalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350596@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – TSV Denkendorf 3
 DTSTART;TZID=Europe/Berlin:20270109T120000
 DTEND;TZID=Europe/Berlin:20270109T140000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350605@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:SKV Unterens. 3 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20270213T160000
 DTEND;TZID=Europe/Berlin:20270213T180000
 LOCATION:Bettwiesenhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350585@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – TSG Eislingen 2
 DTSTART;TZID=Europe/Berlin:20270220T160000
 DTEND;TZID=Europe/Berlin:20270220T180000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350618@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:HSG Ostfildern 2 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20270306T173000
 DTEND;TZID=Europe/Berlin:20270306T193000
 LOCATION:Körschtalhalle
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350616@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – TV Reichenbach 3
 DTSTART;TZID=Europe/Berlin:20270320T180000
 DTEND;TZID=Europe/Berlin:20270320T200000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350622@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Männer 3 – HC Wernau 2
 DTSTART;TZID=Europe/Berlin:20270417T160000
 DTEND;TZID=Europe/Berlin:20270417T180000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: undef
- ined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: https
+ ://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leagu
+ e?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:350626@kugis-maenner3
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TSG Eislingen 2 – KuGiS Männer 3
 DTSTART;TZID=Europe/Berlin:20270424T160000
 DTEND;TZID=Europe/Berlin:20270424T180000
 LOCATION:Öschhalle 2
 DESCRIPTION:Auswärtsspiel KuGiS Männer 3\nErgebnis:  : \nSpielplan: 
- undefined
-URL:undefined
+ https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/
+ league?ogId=216&lId=162261
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162261
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT

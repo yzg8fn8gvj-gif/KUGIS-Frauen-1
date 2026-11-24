@@ -27,209 +27,241 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:351092@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – TV Altbach
 DTSTART;TZID=Europe/Berlin:20260919T170000
 DTEND;TZID=Europe/Berlin:20260919T190000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis: 17:30\nSpielplan: unde
- fined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis: 17:30\nSpielplan: http
+ s://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leag
+ ue?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351112@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – KuGiS 3
 DTSTART;TZID=Europe/Berlin:20261115T170000
 DTEND;TZID=Europe/Berlin:20261115T190000
 LOCATION:Ankenhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis: 22:19\nSpielplan: unde
- fined
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis: 22:19\nSpielplan: http
+ s://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/leag
+ ue?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351097@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TSG Eislingen 2 – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20261121T170000
 DTEND;TZID=Europe/Berlin:20261121T190000
 LOCATION:Öschhalle 2
 DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis: 21:25\nSpielplan:
-  undefined
-URL:undefined
+  https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#
+ /league?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351118@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TSV Weilheim 2 – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20261129T150000
 DTEND;TZID=Europe/Berlin:20261129T170000
 LOCATION:Sporthalle an der Lindach
-DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: u
- ndefined
-URL:undefined
+DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: h
+ ttps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/l
+ eague?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351122@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – SG He-Li 2
 DTSTART;TZID=Europe/Berlin:20261205T150000
 DTEND;TZID=Europe/Berlin:20261205T170000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: undefi
- ned
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: https:
+ //www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league
+ ?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351125@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TEAM Esslingen 2 – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20261212T141500
 DTEND;TZID=Europe/Berlin:20261212T161500
 LOCATION:Sporthalle
-DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: u
- ndefined
-URL:undefined
+DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: h
+ ttps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/l
+ eague?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351128@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:TV Altbach – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20261219T200000
 DTEND;TZID=Europe/Berlin:20261219T220000
 LOCATION:Sporthalle
-DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: u
- ndefined
-URL:undefined
+DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: h
+ ttps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/l
+ eague?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351131@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – TSV Weilheim 2
 DTSTART;TZID=Europe/Berlin:20270109T160000
 DTEND;TZID=Europe/Berlin:20270109T180000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: undefi
- ned
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: https:
+ //www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league
+ ?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351136@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – TSG Eislingen 2
 DTSTART;TZID=Europe/Berlin:20270122T200000
 DTEND;TZID=Europe/Berlin:20270122T220000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: undefi
- ned
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: https:
+ //www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league
+ ?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351109@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – HBZ Alt-Geisl 3
 DTSTART;TZID=Europe/Berlin:20270221T173000
 DTEND;TZID=Europe/Berlin:20270221T193000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: undefi
- ned
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: https:
+ //www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league
+ ?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351107@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:FA Göppingen 3 – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20270227T203000
 DTEND;TZID=Europe/Berlin:20270227T223000
 LOCATION:EWS Arena 2
-DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: u
- ndefined
-URL:undefined
+DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: h
+ ttps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/l
+ eague?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351147@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – FA Göppingen 3
 DTSTART;TZID=Europe/Berlin:20270307T153000
 DTEND;TZID=Europe/Berlin:20270307T173000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: undefi
- ned
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: https:
+ //www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league
+ ?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351148@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:HBZ Alt-Geisl 3 – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20270313T153000
 DTEND;TZID=Europe/Berlin:20270313T173000
 LOCATION:Michelberghalle
-DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: u
- ndefined
-URL:undefined
+DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: h
+ ttps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/l
+ eague?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351153@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS 3 – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20270402T200000
 DTEND;TZID=Europe/Berlin:20270402T220000
 LOCATION:Ankenhalle
-DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: u
- ndefined
-URL:undefined
+DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: h
+ ttps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/l
+ eague?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351159@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:KuGiS Frauen 2 – TEAM Esslingen 2
 DTSTART;TZID=Europe/Berlin:20270417T120000
 DTEND;TZID=Europe/Berlin:20270417T140000
 LOCATION:BOSIG-Hohensteinhalle
-DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: undefi
- ned
-URL:undefined
+DESCRIPTION:Heimspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: https:
+ //www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league
+ ?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:351162@kugis-frauen2
-DTSTAMP:20261124T074000Z
+DTSTAMP:20261124T074106Z
 SUMMARY:SG He-Li 2 – KuGiS Frauen 2
 DTSTART;TZID=Europe/Berlin:20270424T153000
 DTEND;TZID=Europe/Berlin:20270424T173000
 LOCATION:Sporthalle Römerstraße
-DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: u
- ndefined
-URL:undefined
+DESCRIPTION:Auswärtsspiel KuGiS Frauen 2\nErgebnis:  : \nSpielplan: h
+ ttps://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/l
+ eague?ogId=216&lId=162301
+URL:https://www.handball4all.de/home/portal/baden-wuerttembergischer-h
+ v#/league?ogId=216&lId=162301
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
