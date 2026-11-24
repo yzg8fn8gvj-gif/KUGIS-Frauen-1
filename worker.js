@@ -10,7 +10,11 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { headers: cors });
     if (request.method !== 'GET') return new Response('Method not allowed', { status: 405, headers: cors });
     const incoming = new URL(request.url);
-    const params = new URLSearchParams({cmd:'ps',og:'216',cl:'162286',ca:'0',do:incoming.searchParams.get('do') || new Date().toISOString().slice(0,10)});
+    const orgId = Number(incoming.searchParams.get('og')) || 216;
+    const leagueId = Number(incoming.searchParams.get('cl')) || 162286;
+    const allowedLeagues = [162286,162301,161176,162231,162261];
+    if (orgId !== 216 || !allowedLeagues.includes(leagueId)) return new Response('Unknown league', {status:400,headers:cors});
+    const params = new URLSearchParams({cmd:'ps',og:String(orgId),cl:String(leagueId),ca:'1'});
     const upstream = 'https://spo.handball4all.de/service/if_g_json.php?' + params.toString();
     try {
       const res = await fetch(upstream, { headers: { Accept: 'application/json,text/plain,*/*' } });
