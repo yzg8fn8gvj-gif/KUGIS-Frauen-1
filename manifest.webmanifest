@@ -1,7 +1,7 @@
 {
-  "name": "KuGiS Handball",
-  "short_name": "KuGiS",
-  "description": "Tabelle, Ergebnisse, Spielplan und Kalender der aktiven KuGiS-Frauen- und Männermannschaften",
+  "name": "KuGiS Aktive",
+  "short_name": "KuGiS Aktive",
+  "description": "Tabelle, Ergebnisse, Spielplan und Kalender aller aktiven KuGiS-Frauen- und Männermannschaften",
   "lang": "de-DE",
   "start_url": "./",
   "scope": "./",
