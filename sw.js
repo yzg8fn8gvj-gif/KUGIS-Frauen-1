@@ -1,4 +1,4 @@
-const CACHE = 'kugis-frauen1-shell-v3';
+const CACHE = 'kugis-frauen1-shell-v4';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)));
