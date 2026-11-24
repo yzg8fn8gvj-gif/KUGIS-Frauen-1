@@ -38,6 +38,22 @@
       "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162301"
     },
     {
+      "id": "frauen3",
+      "label": "Frauen 3",
+      "gender": "Frauen",
+      "leagueId": 162301,
+      "leagueName": "Frauen Bezirksklasse Staffel 1",
+      "aliases": [
+        "KuGiS 3",
+        "Kuchen-Gingen-Süssen Handball 3",
+        "Kuchen-Gingen-Suessen Handball 3"
+      ],
+      "calendarFile": "calendar-frauen3.ics",
+      "uidSuffix": "frauen3",
+      "season": "2026 / 27",
+      "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162301"
+    },
+    {
       "id": "maenner1",
       "label": "Männer 1",
       "gender": "Männer",
