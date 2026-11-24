@@ -1,5 +1,5 @@
-const base = 161800;
-const last = 162800;
+const base = 160000;
+const last = 161799;
 const org = 216;
 const aliases = ["kugis", "sgkugis", "kuchengingensussen"];
 const norm = s => String(s ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
