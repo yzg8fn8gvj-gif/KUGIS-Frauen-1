@@ -1,10 +1,86 @@
 {
   "api": "https://spo.handball4all.de/service/if_g_json.php",
   "orgId": 216,
-  "leagueId": 162286,
-  "teamAliases": ["KuGiS", "Kuchen-Gingen-Süssen", "Kuchen-Gingen-Suessen", "SG KuGiS"],
+  "season": "2026 / 27",
   "timezone": "Europe/Berlin",
   "eventDurationMinutes": 120,
-  "portalUrl": "https://www.handball4all.de/home/portal/baden-wuerttembergischer-hv#/league?ogId=216&lId=162286",
-  "note": "Für eine neue Saison nur orgId und leagueId, bei Namensänderung zusätzlich teamAliases anpassen. Die Kalender-Abo-Adresse bleibt unverändert."
+  "teams": [
+    {
+      "id": "frauen1",
+      "label": "Frauen 1",
+      "gender": "Frauen",
+      "leagueId": 162286,
+      "leagueName": "Frauen Bezirksoberliga Staffel 2",
+      "aliases": [
+        "KuGiS",
+        "Kuchen-Gingen-Süssen Handball",
+        "Kuchen-Gingen-Suessen Handball"
+      ],
+      "calendarFile": "calendar.ics",
+      "uidSuffix": "frauen1",
+      "season": "2026 / 27"
+    },
+    {
+      "id": "frauen2",
+      "label": "Frauen 2",
+      "gender": "Frauen",
+      "leagueId": 162301,
+      "leagueName": "Frauen Bezirksklasse Staffel 1",
+      "aliases": [
+        "KuGiS 2",
+        "Kuchen-Gingen-Süssen Handball 2",
+        "Kuchen-Gingen-Suessen Handball 2"
+      ],
+      "calendarFile": "calendar-frauen2.ics",
+      "uidSuffix": "frauen2",
+      "season": "2026 / 27"
+    },
+    {
+      "id": "maenner1",
+      "label": "Männer 1",
+      "gender": "Männer",
+      "leagueId": 161176,
+      "leagueName": "Männer-Landesliga Staffel 4",
+      "aliases": [
+        "KuGiS",
+        "SG KuGiS",
+        "Kuchen-Gingen-Süssen Handball",
+        "Kuchen-Gingen-Suessen Handball"
+      ],
+      "calendarFile": "calendar-maenner1.ics",
+      "uidSuffix": "maenner1",
+      "season": "2026 / 27"
+    },
+    {
+      "id": "maenner2",
+      "label": "Männer 2",
+      "gender": "Männer",
+      "leagueId": 162231,
+      "leagueName": "Männer Bezirksliga Staffel 1",
+      "aliases": [
+        "KuGiS 2",
+        "Kuchen-Gingen-Süssen Handball 2",
+        "Kuchen-Gingen-Suessen Handball 2"
+      ],
+      "calendarFile": "calendar-maenner2.ics",
+      "uidSuffix": "maenner2",
+      "season": "2026 / 27"
+    },
+    {
+      "id": "maenner3",
+      "label": "Männer 3",
+      "gender": "Männer",
+      "leagueId": 162261,
+      "leagueName": "Männer 2 Bezirksklasse Staffel 1",
+      "aliases": [
+        "KuGiS 3",
+        "Kuchen-Gingen-Süssen Handball 3",
+        "Kuchen-Gingen-Suessen Handball 3"
+      ],
+      "calendarFile": "calendar-maenner3.ics",
+      "uidSuffix": "maenner3",
+      "season": "2026 / 27"
+    }
+  ],
+  "note": "Für den Saisonwechsel werden nur die leagueId-Werte der aktiven Mannschaften geändert. Die Kalender-Abo-Adressen bleiben unverändert. Jugendmannschaften sind absichtlich nicht enthalten."
 }
