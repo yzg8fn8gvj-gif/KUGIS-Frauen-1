@@ -25,6 +25,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - name: Discover active KuGiS leagues
+        run: node scripts/discover-active-leagues.mjs
       - name: Refresh KuGiS calendar from Handball4all
         run: node scripts/update-calendar.mjs
       - name: Refresh TB Gingen Bulls I data and calendar from DVOS
